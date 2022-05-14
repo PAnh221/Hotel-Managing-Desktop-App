@@ -239,7 +239,7 @@ namespace Nhom15_FinalProject
             this.pbDelete.TabIndex = 139;
             this.pbDelete.TabStop = false;
             this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
-            this.pbDelete.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
+            this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
             // 
             // txtTotal
             // 

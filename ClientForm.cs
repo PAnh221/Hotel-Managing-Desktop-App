@@ -26,12 +26,12 @@ namespace Nhom15_FinalProject
         #region Events Mouse
         private void pbAdd_MouseEnter(object sender, EventArgs e)
         {
-            ButtonColorChanged("add_blue.png", this.pbAdd);
+            ButtonColorChanged("add_Client_blue.png", this.pbAdd);
         }
 
         private void pbAdd_MouseLeave(object sender, EventArgs e)
         {
-            ButtonColorChanged("add.png", this.pbAdd);
+            ButtonColorChanged("add_Client.png", this.pbAdd);
         }
 
         private void pbBack_MouseLeave(object sender, EventArgs e)
@@ -44,24 +44,25 @@ namespace Nhom15_FinalProject
             ButtonColorChanged("back.png", this.pbBack);
         }
 
+
         private void pbEdit_MouseEnter(object sender, EventArgs e)
         {
-            ButtonColorChanged("edit_blue.png", this.pbEdit);
+            ButtonColorChanged("edit_Client_blue.png", this.pbEdit);
         }
 
         private void pbEdit_MouseLeave(object sender, EventArgs e)
         {
-            ButtonColorChanged("edit.png", this.pbEdit);
+            ButtonColorChanged("edit_Client.png", this.pbEdit);
         }
 
         private void pbDelete_MouseEnter(object sender, EventArgs e)
         {
-            ButtonColorChanged("delete_blue.png", this.pbDelete);
+            ButtonColorChanged("delete_Client_blue.png", this.pbDelete);
         }
 
         private void pbDelete_MouseLeave(object sender, EventArgs e)
         {
-            ButtonColorChanged("delete.png", this.pbDelete);
+            ButtonColorChanged("delete_Client.png", this.pbDelete);
         }
 
         private void pbSave_MouseEnter(object sender, EventArgs e)
