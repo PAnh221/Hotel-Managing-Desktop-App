@@ -318,6 +318,7 @@ namespace Nhom15_FinalProject
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBack.TabIndex = 130;
             this.pbBack.TabStop = false;
+            this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
             // 
             // label1
             // 
@@ -370,7 +371,7 @@ namespace Nhom15_FinalProject
             this.Controls.Add(this.panel1);
             this.Name = "UseServiceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UseServiceForm";
+            this.Text = "Service Using";
             this.Load += new System.EventHandler(this.UseServiceForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
             this.gbInfor.ResumeLayout(false);

@@ -82,5 +82,10 @@ namespace Nhom15_FinalProject
             pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
         }
+
+        private void pbBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

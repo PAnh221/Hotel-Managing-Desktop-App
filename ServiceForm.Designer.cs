@@ -46,10 +46,6 @@ namespace Nhom15_FinalProject
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbDelete = new System.Windows.Forms.PictureBox();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameService = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvService = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -224,6 +220,7 @@ namespace Nhom15_FinalProject
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBack.TabIndex = 131;
             this.pbBack.TabStop = false;
+            this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
             // 
             // pbAdd
             // 
@@ -235,6 +232,7 @@ namespace Nhom15_FinalProject
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAdd.TabIndex = 134;
             this.pbAdd.TabStop = false;
+            this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
             this.pbAdd.MouseEnter += new System.EventHandler(this.pbAdd_MouseEnter);
             this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
             // 
@@ -248,44 +246,9 @@ namespace Nhom15_FinalProject
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDelete.TabIndex = 133;
             this.pbDelete.TabStop = false;
+            this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
             this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
             this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
-            // 
-            // Unit
-            // 
-            this.Unit.DataPropertyName = "DonViTinh";
-            this.Unit.HeaderText = "Unit";
-            this.Unit.MinimumWidth = 6;
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            this.Unit.Width = 125;
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "GiaTien";
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Width = 125;
-            // 
-            // NameService
-            // 
-            this.NameService.DataPropertyName = "TenDV";
-            this.NameService.HeaderText = "Name";
-            this.NameService.MinimumWidth = 6;
-            this.NameService.Name = "NameService";
-            this.NameService.ReadOnly = true;
-            this.NameService.Width = 125;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "MaDV";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 125;
             // 
             // txtFind
             // 
@@ -301,11 +264,6 @@ namespace Nhom15_FinalProject
             this.dgvService.AllowUserToAddRows = false;
             this.dgvService.AllowUserToDeleteRows = false;
             this.dgvService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvService.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.NameService,
-            this.Price,
-            this.Unit});
             this.dgvService.Location = new System.Drawing.Point(905, 314);
             this.dgvService.Margin = new System.Windows.Forms.Padding(4);
             this.dgvService.Name = "dgvService";
@@ -313,6 +271,7 @@ namespace Nhom15_FinalProject
             this.dgvService.RowHeadersWidth = 51;
             this.dgvService.Size = new System.Drawing.Size(791, 420);
             this.dgvService.TabIndex = 129;
+            this.dgvService.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvService_CellClick);
             // 
             // label1
             // 
@@ -367,7 +326,7 @@ namespace Nhom15_FinalProject
             this.Controls.Add(this.panel1);
             this.Name = "ServiceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ServiceForm";
+            this.Text = "Service";
             this.Load += new System.EventHandler(this.ServiceForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
             this.gbInfor.ResumeLayout(false);
@@ -402,10 +361,6 @@ namespace Nhom15_FinalProject
         private System.Windows.Forms.PictureBox pbBack;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameService;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgvService;
         private System.Windows.Forms.Label label1;

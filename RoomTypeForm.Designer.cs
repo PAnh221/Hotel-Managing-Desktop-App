@@ -41,8 +41,6 @@ namespace Nhom15_FinalProject
             this.btnSearch = new System.Windows.Forms.Button();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbDelete = new System.Windows.Forms.PictureBox();
-            this.NameType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvTypeRoom = new System.Windows.Forms.DataGridView();
             this.pbBack = new System.Windows.Forms.PictureBox();
@@ -174,6 +172,7 @@ namespace Nhom15_FinalProject
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAdd.TabIndex = 134;
             this.pbAdd.TabStop = false;
+            this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
             this.pbAdd.MouseEnter += new System.EventHandler(this.pbAdd_MouseEnter);
             this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
             // 
@@ -187,26 +186,9 @@ namespace Nhom15_FinalProject
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDelete.TabIndex = 133;
             this.pbDelete.TabStop = false;
+            this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
             this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
             this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
-            // 
-            // NameType
-            // 
-            this.NameType.DataPropertyName = "TenLoai";
-            this.NameType.HeaderText = "Name Type";
-            this.NameType.MinimumWidth = 6;
-            this.NameType.Name = "NameType";
-            this.NameType.ReadOnly = true;
-            this.NameType.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "MaLoai";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Room Type";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 125;
             // 
             // txtFind
             // 
@@ -222,9 +204,6 @@ namespace Nhom15_FinalProject
             this.dgvTypeRoom.AllowUserToAddRows = false;
             this.dgvTypeRoom.AllowUserToDeleteRows = false;
             this.dgvTypeRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTypeRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.NameType});
             this.dgvTypeRoom.Location = new System.Drawing.Point(905, 314);
             this.dgvTypeRoom.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTypeRoom.Name = "dgvTypeRoom";
@@ -232,6 +211,7 @@ namespace Nhom15_FinalProject
             this.dgvTypeRoom.RowHeadersWidth = 51;
             this.dgvTypeRoom.Size = new System.Drawing.Size(791, 420);
             this.dgvTypeRoom.TabIndex = 130;
+            this.dgvTypeRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTypeRoom_CellClick);
             // 
             // pbBack
             // 
@@ -243,6 +223,7 @@ namespace Nhom15_FinalProject
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBack.TabIndex = 129;
             this.pbBack.TabStop = false;
+            this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
             // 
             // label1
             // 
@@ -265,6 +246,7 @@ namespace Nhom15_FinalProject
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEdit.TabIndex = 132;
             this.pbEdit.TabStop = false;
+            this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
             this.pbEdit.MouseEnter += new System.EventHandler(this.pbEdit_MouseEnter);
             this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
             // 
@@ -297,7 +279,7 @@ namespace Nhom15_FinalProject
             this.Controls.Add(this.panel1);
             this.Name = "RoomTypeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RoomType";
+            this.Text = "Room Type";
             this.Load += new System.EventHandler(this.RoomType_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
             this.gbInfor.ResumeLayout(false);
@@ -327,8 +309,6 @@ namespace Nhom15_FinalProject
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgvTypeRoom;
         private System.Windows.Forms.PictureBox pbBack;

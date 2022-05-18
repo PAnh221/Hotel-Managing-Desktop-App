@@ -460,6 +460,7 @@ namespace Nhom15_FinalProject
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBack.TabIndex = 132;
             this.pbBack.TabStop = false;
+            this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
             // 
             // btnSearch
             // 
@@ -493,7 +494,7 @@ namespace Nhom15_FinalProject
             this.Controls.Add(this.btnSearch);
             this.Name = "PurchaseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PurchaseForm";
+            this.Text = "Purchase";
             this.Load += new System.EventHandler(this.PurchaseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();

@@ -1,0 +1,781 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HotelDMF_Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="commune">
+          <Key>
+            <PropertyRef Name="commune_id" />
+          </Key>
+          <Property Name="commune_id" Type="nchar" MaxLength="5" Nullable="false" />
+          <Property Name="commune_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="degree" Type="int" />
+          <Property Name="district_id" Type="nchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="DichVu">
+          <Key>
+            <PropertyRef Name="MaDV" />
+          </Key>
+          <Property Name="MaDV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenDV" Type="nvarchar" MaxLength="50" />
+          <Property Name="GiaTien" Type="float" />
+          <Property Name="DonViTinh" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="district">
+          <Key>
+            <PropertyRef Name="district_id" />
+          </Key>
+          <Property Name="district_id" Type="nchar" MaxLength="5" Nullable="false" />
+          <Property Name="district_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="province_id" Type="nchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="CMND" />
+          </Key>
+          <Property Name="CMND" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenKH" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+          <Property Name="SoDienThoai" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nu" Type="bit" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="commune_id" Type="nchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="LoaiPhong">
+          <Key>
+            <PropertyRef Name="MaLoai" />
+          </Key>
+          <Property Name="MaLoai" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TenLoai" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="MaNV" />
+          </Key>
+          <Property Name="MaNV" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenNV" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nu" Type="bit" />
+          <Property Name="commune_id" Type="nchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Phong">
+          <Key>
+            <PropertyRef Name="MaPhong" />
+          </Key>
+          <Property Name="MaPhong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaLoai" Type="nvarchar" MaxLength="50" />
+          <Property Name="TrangThai" Type="bit" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+          <Property Name="DienTich" Type="nvarchar" MaxLength="50" />
+          <Property Name="GiaThue" Type="float" />
+          <Property Name="SoGiuong" Type="int" />
+        </EntityType>
+        <EntityType Name="province">
+          <Key>
+            <PropertyRef Name="province_id" />
+          </Key>
+          <Property Name="province_id" Type="nchar" MaxLength="5" Nullable="false" />
+          <Property Name="province_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SuDungDichVu">
+          <Key>
+            <PropertyRef Name="MaPhong" />
+            <PropertyRef Name="MaDV" />
+          </Key>
+          <Property Name="MaPhong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaDV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaThuePhong" Type="nchar" MaxLength="10" />
+          <Property Name="NgaySuDung" Type="date" />
+          <Property Name="SoLuong" Type="int" />
+        </EntityType>
+        <EntityType Name="ThanhToan">
+          <Key>
+            <PropertyRef Name="MaThanhToan" />
+          </Key>
+          <Property Name="MaThanhToan" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ThanhTien" Type="money" />
+          <Property Name="NgayThanhToan" Type="date" />
+          <Property Name="MaThuePhong" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaNV" Type="nvarchar" MaxLength="50" />
+          <Property Name="NgayVao" Type="date" />
+        </EntityType>
+        <EntityType Name="ThuePhong">
+          <Key>
+            <PropertyRef Name="MaThuePhong" />
+          </Key>
+          <Property Name="MaThuePhong" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaPhong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaNV" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="CMND" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NgayVao" Type="nchar" MaxLength="10" />
+          <Property Name="DatCoc" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__commune__distric__37A5467C">
+          <End Role="district" Type="Self.district" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="commune" Type="Self.commune" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="district">
+              <PropertyRef Name="district_id" />
+            </Principal>
+            <Dependent Role="commune">
+              <PropertyRef Name="district_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__district__provin__38996AB5">
+          <End Role="province" Type="Self.province" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="district" Type="Self.district" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="province">
+              <PropertyRef Name="province_id" />
+            </Principal>
+            <Dependent Role="district">
+              <PropertyRef Name="province_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KhachHang_commune">
+          <End Role="commune" Type="Self.commune" Multiplicity="0..1" />
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="commune">
+              <PropertyRef Name="commune_id" />
+            </Principal>
+            <Dependent Role="KhachHang">
+              <PropertyRef Name="commune_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NhanVien_commune">
+          <End Role="commune" Type="Self.commune" Multiplicity="1" />
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="commune">
+              <PropertyRef Name="commune_id" />
+            </Principal>
+            <Dependent Role="NhanVien">
+              <PropertyRef Name="commune_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phong_LoaiPhong">
+          <End Role="LoaiPhong" Type="Self.LoaiPhong" Multiplicity="0..1" />
+          <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiPhong">
+              <PropertyRef Name="MaLoai" />
+            </Principal>
+            <Dependent Role="Phong">
+              <PropertyRef Name="MaLoai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SuDungDichVu_DichVu1">
+          <End Role="DichVu" Type="Self.DichVu" Multiplicity="1" />
+          <End Role="SuDungDichVu" Type="Self.SuDungDichVu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DichVu">
+              <PropertyRef Name="MaDV" />
+            </Principal>
+            <Dependent Role="SuDungDichVu">
+              <PropertyRef Name="MaDV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SuDungDichVu_ThuePhong">
+          <End Role="ThuePhong" Type="Self.ThuePhong" Multiplicity="0..1" />
+          <End Role="SuDungDichVu" Type="Self.SuDungDichVu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThuePhong">
+              <PropertyRef Name="MaThuePhong" />
+            </Principal>
+            <Dependent Role="SuDungDichVu">
+              <PropertyRef Name="MaThuePhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ThanhToan_ThuePhong">
+          <End Role="ThuePhong" Type="Self.ThuePhong" Multiplicity="1" />
+          <End Role="ThanhToan" Type="Self.ThanhToan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThuePhong">
+              <PropertyRef Name="MaThuePhong" />
+            </Principal>
+            <Dependent Role="ThanhToan">
+              <PropertyRef Name="MaThuePhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ThuePhong_KhachHang">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+          <End Role="ThuePhong" Type="Self.ThuePhong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="CMND" />
+            </Principal>
+            <Dependent Role="ThuePhong">
+              <PropertyRef Name="CMND" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ThuePhong_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="ThuePhong" Type="Self.ThuePhong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNV" />
+            </Principal>
+            <Dependent Role="ThuePhong">
+              <PropertyRef Name="MaNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ThuePhong_Phong">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+          <End Role="ThuePhong" Type="Self.ThuePhong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="MaPhong" />
+            </Principal>
+            <Dependent Role="ThuePhong">
+              <PropertyRef Name="MaPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelDMF_Model1StoreContainer">
+          <EntitySet Name="commune" EntityType="Self.commune" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DichVu" EntityType="Self.DichVu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="district" EntityType="Self.district" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoaiPhong" EntityType="Self.LoaiPhong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="province" EntityType="Self.province" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuDungDichVu" EntityType="Self.SuDungDichVu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThanhToan" EntityType="Self.ThanhToan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThuePhong" EntityType="Self.ThuePhong" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__commune__distric__37A5467C" Association="Self.FK__commune__distric__37A5467C">
+            <End Role="district" EntitySet="district" />
+            <End Role="commune" EntitySet="commune" />
+          </AssociationSet>
+          <AssociationSet Name="FK__district__provin__38996AB5" Association="Self.FK__district__provin__38996AB5">
+            <End Role="province" EntitySet="province" />
+            <End Role="district" EntitySet="district" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KhachHang_commune" Association="Self.FK_KhachHang_commune">
+            <End Role="commune" EntitySet="commune" />
+            <End Role="KhachHang" EntitySet="KhachHang" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NhanVien_commune" Association="Self.FK_NhanVien_commune">
+            <End Role="commune" EntitySet="commune" />
+            <End Role="NhanVien" EntitySet="NhanVien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phong_LoaiPhong" Association="Self.FK_Phong_LoaiPhong">
+            <End Role="LoaiPhong" EntitySet="LoaiPhong" />
+            <End Role="Phong" EntitySet="Phong" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SuDungDichVu_DichVu1" Association="Self.FK_SuDungDichVu_DichVu1">
+            <End Role="DichVu" EntitySet="DichVu" />
+            <End Role="SuDungDichVu" EntitySet="SuDungDichVu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SuDungDichVu_ThuePhong" Association="Self.FK_SuDungDichVu_ThuePhong">
+            <End Role="ThuePhong" EntitySet="ThuePhong" />
+            <End Role="SuDungDichVu" EntitySet="SuDungDichVu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ThanhToan_ThuePhong" Association="Self.FK_ThanhToan_ThuePhong">
+            <End Role="ThuePhong" EntitySet="ThuePhong" />
+            <End Role="ThanhToan" EntitySet="ThanhToan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ThuePhong_KhachHang" Association="Self.FK_ThuePhong_KhachHang">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="ThuePhong" EntitySet="ThuePhong" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ThuePhong_NhanVien" Association="Self.FK_ThuePhong_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="ThuePhong" EntitySet="ThuePhong" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ThuePhong_Phong" Association="Self.FK_ThuePhong_Phong">
+            <End Role="Phong" EntitySet="Phong" />
+            <End Role="ThuePhong" EntitySet="ThuePhong" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HotelDMF_Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="commune">
+          <Key>
+            <PropertyRef Name="commune_id" />
+          </Key>
+          <Property Name="commune_id" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="commune_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="degree" Type="Int32" />
+          <Property Name="district_id" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="district" Relationship="Self.FK__commune__distric__37A5467C" FromRole="commune" ToRole="district" />
+          <NavigationProperty Name="KhachHangs" Relationship="Self.FK_KhachHang_commune" FromRole="commune" ToRole="KhachHang" />
+          <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_commune" FromRole="commune" ToRole="NhanVien" />
+        </EntityType>
+        <EntityType Name="DichVu">
+          <Key>
+            <PropertyRef Name="MaDV" />
+          </Key>
+          <Property Name="MaDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GiaTien" Type="Double" />
+          <Property Name="DonViTinh" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="SuDungDichVus" Relationship="Self.FK_SuDungDichVu_DichVu1" FromRole="DichVu" ToRole="SuDungDichVu" />
+        </EntityType>
+        <EntityType Name="district">
+          <Key>
+            <PropertyRef Name="district_id" />
+          </Key>
+          <Property Name="district_id" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="district_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="province_id" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="communes" Relationship="Self.FK__commune__distric__37A5467C" FromRole="district" ToRole="commune" />
+          <NavigationProperty Name="province" Relationship="Self.FK__district__provin__38996AB5" FromRole="district" ToRole="province" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="CMND" />
+          </Key>
+          <Property Name="CMND" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nu" Type="Boolean" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="commune_id" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="commune" Relationship="Self.FK_KhachHang_commune" FromRole="KhachHang" ToRole="commune" />
+          <NavigationProperty Name="ThuePhongs" Relationship="Self.FK_ThuePhong_KhachHang" FromRole="KhachHang" ToRole="ThuePhong" />
+        </EntityType>
+        <EntityType Name="LoaiPhong">
+          <Key>
+            <PropertyRef Name="MaLoai" />
+          </Key>
+          <Property Name="MaLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Phongs" Relationship="Self.FK_Phong_LoaiPhong" FromRole="LoaiPhong" ToRole="Phong" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="MaNV" />
+          </Key>
+          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TenNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nu" Type="Boolean" />
+          <Property Name="commune_id" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="commune" Relationship="Self.FK_NhanVien_commune" FromRole="NhanVien" ToRole="commune" />
+          <NavigationProperty Name="ThuePhongs" Relationship="Self.FK_ThuePhong_NhanVien" FromRole="NhanVien" ToRole="ThuePhong" />
+        </EntityType>
+        <EntityType Name="Phong">
+          <Key>
+            <PropertyRef Name="MaPhong" />
+          </Key>
+          <Property Name="MaPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrangThai" Type="Boolean" />
+          <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DienTich" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GiaThue" Type="Double" />
+          <Property Name="SoGiuong" Type="Int32" />
+          <NavigationProperty Name="LoaiPhong" Relationship="Self.FK_Phong_LoaiPhong" FromRole="Phong" ToRole="LoaiPhong" />
+          <NavigationProperty Name="ThuePhongs" Relationship="Self.FK_ThuePhong_Phong" FromRole="Phong" ToRole="ThuePhong" />
+        </EntityType>
+        <EntityType Name="province">
+          <Key>
+            <PropertyRef Name="province_id" />
+          </Key>
+          <Property Name="province_id" Type="String" MaxLength="5" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="province_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="districts" Relationship="Self.FK__district__provin__38996AB5" FromRole="province" ToRole="district" />
+        </EntityType>
+        <EntityType Name="SuDungDichVu">
+          <Key>
+            <PropertyRef Name="MaPhong" />
+            <PropertyRef Name="MaDV" />
+          </Key>
+          <Property Name="MaPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaThuePhong" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="NgaySuDung" Type="DateTime" Precision="0" />
+          <Property Name="SoLuong" Type="Int32" />
+          <NavigationProperty Name="DichVu" Relationship="Self.FK_SuDungDichVu_DichVu1" FromRole="SuDungDichVu" ToRole="DichVu" />
+          <NavigationProperty Name="ThuePhong" Relationship="Self.FK_SuDungDichVu_ThuePhong" FromRole="SuDungDichVu" ToRole="ThuePhong" />
+        </EntityType>
+        <EntityType Name="ThanhToan">
+          <Key>
+            <PropertyRef Name="MaThanhToan" />
+          </Key>
+          <Property Name="MaThanhToan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="NgayThanhToan" Type="DateTime" Precision="0" />
+          <Property Name="MaThuePhong" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NgayVao" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ThuePhong" Relationship="Self.FK_ThanhToan_ThuePhong" FromRole="ThanhToan" ToRole="ThuePhong" />
+        </EntityType>
+        <EntityType Name="ThuePhong">
+          <Key>
+            <PropertyRef Name="MaThuePhong" />
+          </Key>
+          <Property Name="MaThuePhong" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CMND" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgayVao" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DatCoc" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="KhachHang" Relationship="Self.FK_ThuePhong_KhachHang" FromRole="ThuePhong" ToRole="KhachHang" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_ThuePhong_NhanVien" FromRole="ThuePhong" ToRole="NhanVien" />
+          <NavigationProperty Name="Phong" Relationship="Self.FK_ThuePhong_Phong" FromRole="ThuePhong" ToRole="Phong" />
+          <NavigationProperty Name="SuDungDichVus" Relationship="Self.FK_SuDungDichVu_ThuePhong" FromRole="ThuePhong" ToRole="SuDungDichVu" />
+          <NavigationProperty Name="ThanhToans" Relationship="Self.FK_ThanhToan_ThuePhong" FromRole="ThuePhong" ToRole="ThanhToan" />
+        </EntityType>
+        <Association Name="FK__commune__distric__37A5467C">
+          <End Role="district" Type="Self.district" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="commune" Type="Self.commune" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="district">
+              <PropertyRef Name="district_id" />
+            </Principal>
+            <Dependent Role="commune">
+              <PropertyRef Name="district_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KhachHang_commune">
+          <End Role="commune" Type="Self.commune" Multiplicity="0..1" />
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="commune">
+              <PropertyRef Name="commune_id" />
+            </Principal>
+            <Dependent Role="KhachHang">
+              <PropertyRef Name="commune_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NhanVien_commune">
+          <End Role="commune" Type="Self.commune" Multiplicity="1" />
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="commune">
+              <PropertyRef Name="commune_id" />
+            </Principal>
+            <Dependent Role="NhanVien">
+              <PropertyRef Name="commune_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SuDungDichVu_DichVu1">
+          <End Role="DichVu" Type="Self.DichVu" Multiplicity="1" />
+          <End Role="SuDungDichVu" Type="Self.SuDungDichVu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DichVu">
+              <PropertyRef Name="MaDV" />
+            </Principal>
+            <Dependent Role="SuDungDichVu">
+              <PropertyRef Name="MaDV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__district__provin__38996AB5">
+          <End Role="province" Type="Self.province" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="district" Type="Self.district" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="province">
+              <PropertyRef Name="province_id" />
+            </Principal>
+            <Dependent Role="district">
+              <PropertyRef Name="province_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ThuePhong_KhachHang">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+          <End Role="ThuePhong" Type="Self.ThuePhong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="CMND" />
+            </Principal>
+            <Dependent Role="ThuePhong">
+              <PropertyRef Name="CMND" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phong_LoaiPhong">
+          <End Role="LoaiPhong" Type="Self.LoaiPhong" Multiplicity="0..1" />
+          <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiPhong">
+              <PropertyRef Name="MaLoai" />
+            </Principal>
+            <Dependent Role="Phong">
+              <PropertyRef Name="MaLoai" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ThuePhong_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="ThuePhong" Type="Self.ThuePhong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNV" />
+            </Principal>
+            <Dependent Role="ThuePhong">
+              <PropertyRef Name="MaNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ThuePhong_Phong">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+          <End Role="ThuePhong" Type="Self.ThuePhong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="MaPhong" />
+            </Principal>
+            <Dependent Role="ThuePhong">
+              <PropertyRef Name="MaPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SuDungDichVu_ThuePhong">
+          <End Role="ThuePhong" Type="Self.ThuePhong" Multiplicity="0..1" />
+          <End Role="SuDungDichVu" Type="Self.SuDungDichVu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThuePhong">
+              <PropertyRef Name="MaThuePhong" />
+            </Principal>
+            <Dependent Role="SuDungDichVu">
+              <PropertyRef Name="MaThuePhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ThanhToan_ThuePhong">
+          <End Role="ThuePhong" Type="Self.ThuePhong" Multiplicity="1" />
+          <End Role="ThanhToan" Type="Self.ThanhToan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ThuePhong">
+              <PropertyRef Name="MaThuePhong" />
+            </Principal>
+            <Dependent Role="ThanhToan">
+              <PropertyRef Name="MaThuePhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelDBMF" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="communes" EntityType="Self.commune" />
+          <EntitySet Name="DichVus" EntityType="Self.DichVu" />
+          <EntitySet Name="districts" EntityType="Self.district" />
+          <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+          <EntitySet Name="LoaiPhongs" EntityType="Self.LoaiPhong" />
+          <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+          <EntitySet Name="Phongs" EntityType="Self.Phong" />
+          <EntitySet Name="provinces" EntityType="Self.province" />
+          <EntitySet Name="SuDungDichVus" EntityType="Self.SuDungDichVu" />
+          <EntitySet Name="ThanhToans" EntityType="Self.ThanhToan" />
+          <EntitySet Name="ThuePhongs" EntityType="Self.ThuePhong" />
+          <AssociationSet Name="FK__commune__distric__37A5467C" Association="Self.FK__commune__distric__37A5467C">
+            <End Role="district" EntitySet="districts" />
+            <End Role="commune" EntitySet="communes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KhachHang_commune" Association="Self.FK_KhachHang_commune">
+            <End Role="commune" EntitySet="communes" />
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NhanVien_commune" Association="Self.FK_NhanVien_commune">
+            <End Role="commune" EntitySet="communes" />
+            <End Role="NhanVien" EntitySet="NhanViens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SuDungDichVu_DichVu1" Association="Self.FK_SuDungDichVu_DichVu1">
+            <End Role="DichVu" EntitySet="DichVus" />
+            <End Role="SuDungDichVu" EntitySet="SuDungDichVus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__district__provin__38996AB5" Association="Self.FK__district__provin__38996AB5">
+            <End Role="province" EntitySet="provinces" />
+            <End Role="district" EntitySet="districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ThuePhong_KhachHang" Association="Self.FK_ThuePhong_KhachHang">
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="ThuePhong" EntitySet="ThuePhongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phong_LoaiPhong" Association="Self.FK_Phong_LoaiPhong">
+            <End Role="LoaiPhong" EntitySet="LoaiPhongs" />
+            <End Role="Phong" EntitySet="Phongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ThuePhong_NhanVien" Association="Self.FK_ThuePhong_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="ThuePhong" EntitySet="ThuePhongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ThuePhong_Phong" Association="Self.FK_ThuePhong_Phong">
+            <End Role="Phong" EntitySet="Phongs" />
+            <End Role="ThuePhong" EntitySet="ThuePhongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SuDungDichVu_ThuePhong" Association="Self.FK_SuDungDichVu_ThuePhong">
+            <End Role="ThuePhong" EntitySet="ThuePhongs" />
+            <End Role="SuDungDichVu" EntitySet="SuDungDichVus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ThanhToan_ThuePhong" Association="Self.FK_ThanhToan_ThuePhong">
+            <End Role="ThuePhong" EntitySet="ThuePhongs" />
+            <End Role="ThanhToan" EntitySet="ThanhToans" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HotelDMF_Model1StoreContainer" CdmEntityContainer="HotelDBMF">
+          <EntitySetMapping Name="communes">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.commune">
+              <MappingFragment StoreEntitySet="commune">
+                <ScalarProperty Name="commune_id" ColumnName="commune_id" />
+                <ScalarProperty Name="commune_name" ColumnName="commune_name" />
+                <ScalarProperty Name="degree" ColumnName="degree" />
+                <ScalarProperty Name="district_id" ColumnName="district_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DichVus">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.DichVu">
+              <MappingFragment StoreEntitySet="DichVu">
+                <ScalarProperty Name="MaDV" ColumnName="MaDV" />
+                <ScalarProperty Name="TenDV" ColumnName="TenDV" />
+                <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+                <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="districts">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.district">
+              <MappingFragment StoreEntitySet="district">
+                <ScalarProperty Name="district_id" ColumnName="district_id" />
+                <ScalarProperty Name="district_name" ColumnName="district_name" />
+                <ScalarProperty Name="province_id" ColumnName="province_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KhachHangs">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.KhachHang">
+              <MappingFragment StoreEntitySet="KhachHang">
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="Nu" ColumnName="Nu" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="commune_id" ColumnName="commune_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiPhongs">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.LoaiPhong">
+              <MappingFragment StoreEntitySet="LoaiPhong">
+                <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NhanViens">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.NhanVien">
+              <MappingFragment StoreEntitySet="NhanVien">
+                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+                <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Nu" ColumnName="Nu" />
+                <ScalarProperty Name="commune_id" ColumnName="commune_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Phongs">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.Phong">
+              <MappingFragment StoreEntitySet="Phong">
+                <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
+                <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="DienTich" ColumnName="DienTich" />
+                <ScalarProperty Name="GiaThue" ColumnName="GiaThue" />
+                <ScalarProperty Name="SoGiuong" ColumnName="SoGiuong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="provinces">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.province">
+              <MappingFragment StoreEntitySet="province">
+                <ScalarProperty Name="province_id" ColumnName="province_id" />
+                <ScalarProperty Name="province_name" ColumnName="province_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuDungDichVus">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.SuDungDichVu">
+              <MappingFragment StoreEntitySet="SuDungDichVu">
+                <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
+                <ScalarProperty Name="MaDV" ColumnName="MaDV" />
+                <ScalarProperty Name="MaThuePhong" ColumnName="MaThuePhong" />
+                <ScalarProperty Name="NgaySuDung" ColumnName="NgaySuDung" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThanhToans">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.ThanhToan">
+              <MappingFragment StoreEntitySet="ThanhToan">
+                <ScalarProperty Name="MaThanhToan" ColumnName="MaThanhToan" />
+                <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+                <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+                <ScalarProperty Name="MaThuePhong" ColumnName="MaThuePhong" />
+                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+                <ScalarProperty Name="NgayVao" ColumnName="NgayVao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThuePhongs">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.ThuePhong">
+              <MappingFragment StoreEntitySet="ThuePhong">
+                <ScalarProperty Name="MaThuePhong" ColumnName="MaThuePhong" />
+                <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
+                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="NgayVao" ColumnName="NgayVao" />
+                <ScalarProperty Name="DatCoc" ColumnName="DatCoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

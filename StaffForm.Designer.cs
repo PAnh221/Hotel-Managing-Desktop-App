@@ -33,21 +33,6 @@ namespace Nhom15_FinalProject
             this.btnLogout = new System.Windows.Forms.Button();
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.pbCancel = new System.Windows.Forms.PictureBox();
-            this.gbInfor = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpBirthDate = new System.Windows.Forms.DateTimePicker();
-            this.txtChucVu = new System.Windows.Forms.TextBox();
-            this.cbFemale = new System.Windows.Forms.CheckBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Female = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.dgvStaff = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,15 +43,29 @@ namespace Nhom15_FinalProject
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.ckbFemale = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbCommune = new System.Windows.Forms.ComboBox();
+            this.cbDist = new System.Windows.Forms.ComboBox();
+            this.cbProv = new System.Windows.Forms.ComboBox();
+            this.gbInfor = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
-            this.gbInfor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).BeginInit();
             this.panel1.SuspendLayout();
+            this.gbInfor.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -82,20 +81,21 @@ namespace Nhom15_FinalProject
             // pbDelete
             // 
             this.pbDelete.Image = ((System.Drawing.Image)(resources.GetObject("pbDelete.Image")));
-            this.pbDelete.Location = new System.Drawing.Point(380, 608);
+            this.pbDelete.Location = new System.Drawing.Point(395, 649);
             this.pbDelete.Margin = new System.Windows.Forms.Padding(4);
             this.pbDelete.Name = "pbDelete";
             this.pbDelete.Size = new System.Drawing.Size(80, 71);
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDelete.TabIndex = 139;
             this.pbDelete.TabStop = false;
+            this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
             this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
             this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
             // 
             // pbCancel
             // 
             this.pbCancel.Image = ((System.Drawing.Image)(resources.GetObject("pbCancel.Image")));
-            this.pbCancel.Location = new System.Drawing.Point(681, 608);
+            this.pbCancel.Location = new System.Drawing.Point(696, 649);
             this.pbCancel.Margin = new System.Windows.Forms.Padding(4);
             this.pbCancel.Name = "pbCancel";
             this.pbCancel.Size = new System.Drawing.Size(80, 71);
@@ -105,172 +105,10 @@ namespace Nhom15_FinalProject
             this.pbCancel.MouseEnter += new System.EventHandler(this.pbCancel_MouseEnter);
             this.pbCancel.MouseLeave += new System.EventHandler(this.pbCancel_MouseLeave);
             // 
-            // gbInfor
-            // 
-            this.gbInfor.Controls.Add(this.label6);
-            this.gbInfor.Controls.Add(this.label2);
-            this.gbInfor.Controls.Add(this.dtpBirthDate);
-            this.gbInfor.Controls.Add(this.txtChucVu);
-            this.gbInfor.Controls.Add(this.cbFemale);
-            this.gbInfor.Controls.Add(this.txtName);
-            this.gbInfor.Controls.Add(this.label3);
-            this.gbInfor.Controls.Add(this.txtID);
-            this.gbInfor.Controls.Add(this.label4);
-            this.gbInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gbInfor.Location = new System.Drawing.Point(154, 249);
-            this.gbInfor.Margin = new System.Windows.Forms.Padding(4);
-            this.gbInfor.Name = "gbInfor";
-            this.gbInfor.Padding = new System.Windows.Forms.Padding(4);
-            this.gbInfor.Size = new System.Drawing.Size(677, 314);
-            this.gbInfor.TabIndex = 138;
-            this.gbInfor.TabStop = false;
-            this.gbInfor.Text = "Information";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(29, 265);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(123, 31);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "Birthdate";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(29, 73);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 31);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "ID:";
-            // 
-            // dtpBirthDate
-            // 
-            this.dtpBirthDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dtpBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBirthDate.Location = new System.Drawing.Point(267, 258);
-            this.dtpBirthDate.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpBirthDate.Name = "dtpBirthDate";
-            this.dtpBirthDate.Size = new System.Drawing.Size(233, 36);
-            this.dtpBirthDate.TabIndex = 22;
-            // 
-            // txtChucVu
-            // 
-            this.txtChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtChucVu.Location = new System.Drawing.Point(267, 197);
-            this.txtChucVu.Margin = new System.Windows.Forms.Padding(4);
-            this.txtChucVu.Name = "txtChucVu";
-            this.txtChucVu.Size = new System.Drawing.Size(233, 36);
-            this.txtChucVu.TabIndex = 19;
-            // 
-            // cbFemale
-            // 
-            this.cbFemale.AutoSize = true;
-            this.cbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbFemale.Location = new System.Drawing.Point(527, 137);
-            this.cbFemale.Margin = new System.Windows.Forms.Padding(4);
-            this.cbFemale.Name = "cbFemale";
-            this.cbFemale.Size = new System.Drawing.Size(120, 33);
-            this.cbFemale.TabIndex = 21;
-            this.cbFemale.Text = "Female";
-            this.cbFemale.UseVisualStyleBackColor = true;
-            // 
-            // txtName
-            // 
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtName.Location = new System.Drawing.Point(267, 133);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(233, 36);
-            this.txtName.TabIndex = 18;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(29, 137);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 31);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Name:";
-            // 
-            // txtID
-            // 
-            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtID.Location = new System.Drawing.Point(267, 69);
-            this.txtID.Margin = new System.Windows.Forms.Padding(4);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(233, 36);
-            this.txtID.TabIndex = 17;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(29, 201);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 31);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Chức vụ:";
-            // 
-            // BirthDate
-            // 
-            this.BirthDate.DataPropertyName = "NamSinh";
-            this.BirthDate.HeaderText = "BirthDate";
-            this.BirthDate.MinimumWidth = 6;
-            this.BirthDate.Name = "BirthDate";
-            this.BirthDate.ReadOnly = true;
-            this.BirthDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.BirthDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.BirthDate.Width = 125;
-            // 
-            // Female
-            // 
-            this.Female.DataPropertyName = "Nu";
-            this.Female.HeaderText = "Female";
-            this.Female.MinimumWidth = 6;
-            this.Female.Name = "Female";
-            this.Female.ReadOnly = true;
-            this.Female.Width = 125;
-            // 
-            // ChucVu
-            // 
-            this.ChucVu.DataPropertyName = "ChucVu";
-            this.ChucVu.HeaderText = "ChucVu";
-            this.ChucVu.MinimumWidth = 6;
-            this.ChucVu.Name = "ChucVu";
-            this.ChucVu.ReadOnly = true;
-            this.ChucVu.Width = 125;
-            // 
-            // NameStaff
-            // 
-            this.NameStaff.DataPropertyName = "TenNV";
-            this.NameStaff.HeaderText = "Name";
-            this.NameStaff.MinimumWidth = 6;
-            this.NameStaff.Name = "NameStaff";
-            this.NameStaff.ReadOnly = true;
-            this.NameStaff.Width = 125;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "MaNV";
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 125;
-            // 
             // pbSave
             // 
             this.pbSave.Image = ((System.Drawing.Image)(resources.GetObject("pbSave.Image")));
-            this.pbSave.Location = new System.Drawing.Point(576, 608);
+            this.pbSave.Location = new System.Drawing.Point(591, 649);
             this.pbSave.Margin = new System.Windows.Forms.Padding(4);
             this.pbSave.Name = "pbSave";
             this.pbSave.Size = new System.Drawing.Size(80, 71);
@@ -285,12 +123,6 @@ namespace Nhom15_FinalProject
             this.dgvStaff.AllowUserToAddRows = false;
             this.dgvStaff.AllowUserToDeleteRows = false;
             this.dgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStaff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.NameStaff,
-            this.ChucVu,
-            this.Female,
-            this.BirthDate});
             this.dgvStaff.Location = new System.Drawing.Point(902, 315);
             this.dgvStaff.Margin = new System.Windows.Forms.Padding(4);
             this.dgvStaff.Name = "dgvStaff";
@@ -298,6 +130,7 @@ namespace Nhom15_FinalProject
             this.dgvStaff.RowHeadersWidth = 51;
             this.dgvStaff.Size = new System.Drawing.Size(791, 420);
             this.dgvStaff.TabIndex = 129;
+            this.dgvStaff.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStaff_CellClick);
             // 
             // label1
             // 
@@ -340,26 +173,28 @@ namespace Nhom15_FinalProject
             // pbEdit
             // 
             this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
-            this.pbEdit.Location = new System.Drawing.Point(270, 608);
+            this.pbEdit.Location = new System.Drawing.Point(285, 649);
             this.pbEdit.Margin = new System.Windows.Forms.Padding(4);
             this.pbEdit.Name = "pbEdit";
             this.pbEdit.Size = new System.Drawing.Size(80, 71);
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEdit.TabIndex = 133;
             this.pbEdit.TabStop = false;
+            this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
             this.pbEdit.MouseEnter += new System.EventHandler(this.pbEdit_MouseEnter);
             this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
             // 
             // pbAdd
             // 
             this.pbAdd.Image = ((System.Drawing.Image)(resources.GetObject("pbAdd.Image")));
-            this.pbAdd.Location = new System.Drawing.Point(154, 608);
+            this.pbAdd.Location = new System.Drawing.Point(169, 649);
             this.pbAdd.Margin = new System.Windows.Forms.Padding(4);
             this.pbAdd.Name = "pbAdd";
             this.pbAdd.Size = new System.Drawing.Size(80, 71);
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAdd.TabIndex = 132;
             this.pbAdd.TabStop = false;
+            this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
             this.pbAdd.MouseEnter += new System.EventHandler(this.pbAdd_MouseEnter);
             this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
             // 
@@ -373,6 +208,7 @@ namespace Nhom15_FinalProject
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBack.TabIndex = 131;
             this.pbBack.TabStop = false;
+            this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
             // 
             // txtFind
             // 
@@ -392,6 +228,167 @@ namespace Nhom15_FinalProject
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1713, 177);
             this.panel1.TabIndex = 128;
+            // 
+            // txtID
+            // 
+            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtID.Location = new System.Drawing.Point(267, 41);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(233, 36);
+            this.txtID.TabIndex = 17;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.Location = new System.Drawing.Point(84, 93);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 31);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Name:";
+            // 
+            // txtName
+            // 
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtName.Location = new System.Drawing.Point(267, 89);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(233, 36);
+            this.txtName.TabIndex = 18;
+            // 
+            // ckbFemale
+            // 
+            this.ckbFemale.AutoSize = true;
+            this.ckbFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.ckbFemale.Location = new System.Drawing.Point(517, 41);
+            this.ckbFemale.Margin = new System.Windows.Forms.Padding(4);
+            this.ckbFemale.Name = "ckbFemale";
+            this.ckbFemale.Size = new System.Drawing.Size(67, 33);
+            this.ckbFemale.TabIndex = 21;
+            this.ckbFemale.Text = "Nữ";
+            this.ckbFemale.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Location = new System.Drawing.Point(84, 45);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 31);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "ID:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label5.Location = new System.Drawing.Point(81, 147);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(97, 31);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Địa chỉ";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtAddress.Location = new System.Drawing.Point(264, 145);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(233, 36);
+            this.txtAddress.TabIndex = 26;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label7.Location = new System.Drawing.Point(81, 191);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(107, 31);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Phường";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label8.Location = new System.Drawing.Point(81, 245);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(80, 31);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Quận";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label9.Location = new System.Drawing.Point(81, 299);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 31);
+            this.label9.TabIndex = 29;
+            this.label9.Text = "Tỉnh";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // cbCommune
+            // 
+            this.cbCommune.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbCommune.FormattingEnabled = true;
+            this.cbCommune.Location = new System.Drawing.Point(264, 190);
+            this.cbCommune.Name = "cbCommune";
+            this.cbCommune.Size = new System.Drawing.Size(233, 37);
+            this.cbCommune.TabIndex = 30;
+            this.cbCommune.SelectedIndexChanged += new System.EventHandler(this.cbCommune_SelectedIndexChanged);
+            // 
+            // cbDist
+            // 
+            this.cbDist.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbDist.FormattingEnabled = true;
+            this.cbDist.Location = new System.Drawing.Point(264, 244);
+            this.cbDist.Name = "cbDist";
+            this.cbDist.Size = new System.Drawing.Size(233, 37);
+            this.cbDist.TabIndex = 31;
+            this.cbDist.SelectedIndexChanged += new System.EventHandler(this.cbDist_SelectedIndexChanged);
+            // 
+            // cbProv
+            // 
+            this.cbProv.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbProv.FormattingEnabled = true;
+            this.cbProv.Location = new System.Drawing.Point(264, 298);
+            this.cbProv.Name = "cbProv";
+            this.cbProv.Size = new System.Drawing.Size(233, 37);
+            this.cbProv.TabIndex = 32;
+            this.cbProv.SelectedIndexChanged += new System.EventHandler(this.cbProv_SelectedIndexChanged);
+            // 
+            // gbInfor
+            // 
+            this.gbInfor.Controls.Add(this.cbProv);
+            this.gbInfor.Controls.Add(this.cbDist);
+            this.gbInfor.Controls.Add(this.cbCommune);
+            this.gbInfor.Controls.Add(this.label9);
+            this.gbInfor.Controls.Add(this.label8);
+            this.gbInfor.Controls.Add(this.label7);
+            this.gbInfor.Controls.Add(this.txtAddress);
+            this.gbInfor.Controls.Add(this.label5);
+            this.gbInfor.Controls.Add(this.label2);
+            this.gbInfor.Controls.Add(this.ckbFemale);
+            this.gbInfor.Controls.Add(this.txtName);
+            this.gbInfor.Controls.Add(this.label3);
+            this.gbInfor.Controls.Add(this.txtID);
+            this.gbInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.gbInfor.Location = new System.Drawing.Point(159, 211);
+            this.gbInfor.Margin = new System.Windows.Forms.Padding(4);
+            this.gbInfor.Name = "gbInfor";
+            this.gbInfor.Padding = new System.Windows.Forms.Padding(4);
+            this.gbInfor.Size = new System.Drawing.Size(672, 400);
+            this.gbInfor.TabIndex = 138;
+            this.gbInfor.TabStop = false;
+            this.gbInfor.Text = "Information";
             // 
             // StaffForm
             // 
@@ -413,12 +410,10 @@ namespace Nhom15_FinalProject
             this.Controls.Add(this.panel1);
             this.Name = "StaffForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "StaffForm";
+            this.Text = "Staff";
             this.Load += new System.EventHandler(this.StaffForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
-            this.gbInfor.ResumeLayout(false);
-            this.gbInfor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEdit)).EndInit();
@@ -426,6 +421,8 @@ namespace Nhom15_FinalProject
             ((System.ComponentModel.ISupportInitialize)(this.pbBack)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.gbInfor.ResumeLayout(false);
+            this.gbInfor.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,21 +432,6 @@ namespace Nhom15_FinalProject
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.PictureBox pbDelete;
         private System.Windows.Forms.PictureBox pbCancel;
-        private System.Windows.Forms.GroupBox gbInfor;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtpBirthDate;
-        private System.Windows.Forms.TextBox txtChucVu;
-        private System.Windows.Forms.CheckBox cbFemale;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BirthDate;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Female;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ChucVu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameStaff;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.PictureBox pbSave;
         private System.Windows.Forms.DataGridView dgvStaff;
         private System.Windows.Forms.Label label1;
@@ -460,5 +442,19 @@ namespace Nhom15_FinalProject
         private System.Windows.Forms.PictureBox pbBack;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.CheckBox ckbFemale;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbCommune;
+        private System.Windows.Forms.ComboBox cbDist;
+        private System.Windows.Forms.ComboBox cbProv;
+        private System.Windows.Forms.GroupBox gbInfor;
     }
 }

@@ -363,6 +363,7 @@ namespace Nhom15_FinalProject
             this.pbBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBack.TabIndex = 131;
             this.pbBack.TabStop = false;
+            this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
             // 
             // txtFind
             // 
@@ -446,7 +447,7 @@ namespace Nhom15_FinalProject
             this.Controls.Add(this.panel1);
             this.Name = "RoomForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RoomForm";
+            this.Text = "Room";
             this.Load += new System.EventHandler(this.RoomForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
             this.gbInfor.ResumeLayout(false);

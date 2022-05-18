@@ -98,7 +98,7 @@ namespace Nhom15_FinalProject
             // 
             this.lblClient.AutoSize = true;
             this.lblClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblClient.Location = new System.Drawing.Point(83, 296);
+            this.lblClient.Location = new System.Drawing.Point(85, 308);
             this.lblClient.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblClient.Name = "lblClient";
             this.lblClient.Size = new System.Drawing.Size(84, 31);
@@ -112,7 +112,7 @@ namespace Nhom15_FinalProject
             // 
             this.lblPurchase.AutoSize = true;
             this.lblPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblPurchase.Location = new System.Drawing.Point(496, 116);
+            this.lblPurchase.Location = new System.Drawing.Point(506, 116);
             this.lblPurchase.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPurchase.Name = "lblPurchase";
             this.lblPurchase.Size = new System.Drawing.Size(129, 31);
@@ -167,7 +167,7 @@ namespace Nhom15_FinalProject
             // pbPurchase
             // 
             this.pbPurchase.Image = ((System.Drawing.Image)(resources.GetObject("pbPurchase.Image")));
-            this.pbPurchase.Location = new System.Drawing.Point(502, 151);
+            this.pbPurchase.Location = new System.Drawing.Point(512, 151);
             this.pbPurchase.Margin = new System.Windows.Forms.Padding(4);
             this.pbPurchase.Name = "pbPurchase";
             this.pbPurchase.Size = new System.Drawing.Size(111, 97);
@@ -280,7 +280,7 @@ namespace Nhom15_FinalProject
             // 
             this.lblStaff.AutoSize = true;
             this.lblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblStaff.Location = new System.Drawing.Point(725, 308);
+            this.lblStaff.Location = new System.Drawing.Point(721, 308);
             this.lblStaff.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStaff.Name = "lblStaff";
             this.lblStaff.Size = new System.Drawing.Size(71, 31);
@@ -315,7 +315,7 @@ namespace Nhom15_FinalProject
             this.Controls.Add(this.label1);
             this.Name = "MenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MenuStaffForm";
+            this.Text = "Menu";
             this.Load += new System.EventHandler(this.MenuForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbRoomUsing)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbClient)).EndInit();

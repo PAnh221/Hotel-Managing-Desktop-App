@@ -13,6 +13,7 @@ namespace Nhom15_FinalProject
 {
     public partial class RoomTypeForm : Form
     {
+        HotelDBMF db = null;
         public RoomTypeForm()
         {
             InitializeComponent();
@@ -20,7 +21,22 @@ namespace Nhom15_FinalProject
 
         private void RoomType_Load(object sender, EventArgs e)
         {
+            mySetRoomType();
+        }
 
+        private void mySetRoomType()
+        {
+            db = new HotelDBMF();
+            var RTQ = from RTypeList in db.LoaiPhongs
+                      select RTypeList;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Ma_Loai");
+            dt.Columns.Add("Ten_Loai");
+            foreach (var p in RTQ)
+            {
+                dt.Rows.Add(p.MaLoai, p.TenLoai);
+            }
+            dgvTypeRoom.DataSource = dt;
         }
 
         #region Events Mouse
@@ -89,6 +105,70 @@ namespace Nhom15_FinalProject
         {
             pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void pbBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dgvTypeRoom_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int r = dgvTypeRoom.CurrentCell.RowIndex;
+            // Chuyển thông tin từ Gridview lên các textbox ở panel
+            txtRoomType.Text = dgvTypeRoom.Rows[r].Cells[0].Value.ToString();
+            txtNameType.Text = dgvTypeRoom.Rows[r].Cells[1].Value.ToString();
+        }
+
+        private void pbEdit_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            int r = dgvTypeRoom.CurrentCell.RowIndex;
+            string tempDID = dgvTypeRoom.Rows[r].Cells[0].Value.ToString();
+            LoaiPhong Q = db.LoaiPhongs.Single(x => x.MaLoai == tempDID);
+
+            db.LoaiPhongs.Remove(Q);
+            db.SaveChanges();
+            mySetRoomType();
+        }
+
+        private void pbAdd_Click(object sender, EventArgs e)
+        {
+            db = new HotelDBMF();
+            int r = dgvTypeRoom.CurrentCell.RowIndex;
+            string tempID = dgvTypeRoom.Rows[r].Cells[0].Value.ToString();
+
+            var Query = (from RT in db.LoaiPhongs
+                         where RT.MaLoai == txtRoomType.Text.Trim()
+                         select RT).SingleOrDefault();
+            if (Query != null)
+            {
+                MessageBox.Show("Ma Loai already exists", "Error");
+                return;
+            }
+            else
+            {
+                try
+                {
+                    LoaiPhong RT = new LoaiPhong();
+                    RT.MaLoai = txtRoomType.Text.Trim();
+                    RT.TenLoai = txtNameType.Text.Trim();
+
+                    db.LoaiPhongs.Add(RT);
+                    db.SaveChanges();
+
+                }
+                catch
+                {
+                    MessageBox.Show("Error", "Lỗi !");
+
+                }
+                mySetRoomType();
+            }
         }
     }
 }

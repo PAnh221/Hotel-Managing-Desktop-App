@@ -13,6 +13,7 @@ namespace Nhom15_FinalProject
 {
     public partial class ServiceForm : Form
     {
+        HotelDBMF db = null;
         public ServiceForm()
         {
             InitializeComponent();
@@ -20,7 +21,24 @@ namespace Nhom15_FinalProject
 
         private void ServiceForm_Load(object sender, EventArgs e)
         {
+            mySetService();
+        }
 
+        private void mySetService()
+        {
+            db = new HotelDBMF();
+            var SQ = from SList in db.DichVus
+                      select SList;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Ma_DV");
+            dt.Columns.Add("Ten_DV");
+            dt.Columns.Add("Gia_Tien");
+            dt.Columns.Add("Don_Vi");
+            foreach (var p in SQ)
+            {
+                dt.Rows.Add(p.MaDV, p.TenDV, p.GiaTien, p.DonViTinh);
+            }
+            dgvService.DataSource = dt;
         }
 
         #region Events Mouse
@@ -89,6 +107,68 @@ namespace Nhom15_FinalProject
         {
             pb.Image = Image.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\Images\\" + picture);
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void pbBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dgvService_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int r = dgvService.CurrentCell.RowIndex;
+            // Chuyển thông tin từ Gridview lên các textbox ở panel
+            txtServiceID.Text = dgvService.Rows[r].Cells[0].Value.ToString();
+            txtServiceName.Text = dgvService.Rows[r].Cells[1].Value.ToString();
+            txtPrice.Text = dgvService.Rows[r].Cells[2].Value.ToString();
+            txtUnit.Text = dgvService.Rows[r].Cells[3].Value.ToString();
+        }
+
+        private void pbAdd_Click(object sender, EventArgs e)
+        {
+            db = new HotelDBMF();
+            int r = dgvService.CurrentCell.RowIndex;
+            string tempID = dgvService.Rows[r].Cells[0].Value.ToString();
+
+            var Query = (from SV in db.DichVus
+                         where SV.MaDV == txtServiceID.Text.Trim()
+                         select SV).SingleOrDefault();
+            if (Query != null)
+            {
+                MessageBox.Show("Ma Dich Vu already exists", "Error");
+                return;
+            }
+            else
+            {
+                try
+                {
+                    DichVu SV = new DichVu();
+                    SV.MaDV = txtServiceID.Text.Trim();
+                    SV.TenDV = txtServiceName.Text.Trim();
+                    SV.GiaTien = Convert.ToDouble(txtPrice.Text.Trim());
+                    SV.DonViTinh = txtUnit.Text.Trim();
+
+                    db.DichVus.Add(SV);
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    MessageBox.Show("Error", "Lỗi !");
+
+                }
+                mySetService();
+            }
+        }
+
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            int r = dgvService.CurrentCell.RowIndex;
+            string tempDID = dgvService.Rows[r].Cells[0].Value.ToString();
+            DichVu Q = db.DichVus.Single(x => x.MaDV == tempDID);
+
+            db.DichVus.Remove(Q);
+            db.SaveChanges();
+            mySetService();
         }
     }
 }
