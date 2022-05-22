@@ -21,6 +21,8 @@ namespace Nhom15_FinalProject
 
         private void RoomType_Load(object sender, EventArgs e)
         {
+            pbSave.Visible = false;
+            pbCancel.Visible = false;
             mySetRoomType();
         }
 
@@ -127,20 +129,26 @@ namespace Nhom15_FinalProject
 
         private void pbDelete_Click(object sender, EventArgs e)
         {
-            int r = dgvTypeRoom.CurrentCell.RowIndex;
-            string tempDID = dgvTypeRoom.Rows[r].Cells[0].Value.ToString();
-            LoaiPhong Q = db.LoaiPhongs.Single(x => x.MaLoai == tempDID);
+            if(dgvTypeRoom.CurrentCell != null)
+            {
+                int r = dgvTypeRoom.CurrentCell.RowIndex;
+                string tempDID = dgvTypeRoom.Rows[r].Cells[0].Value.ToString();
+                LoaiPhong Q = db.LoaiPhongs.Single(x => x.MaLoai == tempDID);
 
-            db.LoaiPhongs.Remove(Q);
-            db.SaveChanges();
-            mySetRoomType();
+                db.LoaiPhongs.Remove(Q);
+                db.SaveChanges();
+                mySetRoomType();
+            }
+
         }
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
             db = new HotelDBMF();
-            int r = dgvTypeRoom.CurrentCell.RowIndex;
-            string tempID = dgvTypeRoom.Rows[r].Cells[0].Value.ToString();
+            //int r = dgvTypeRoom.CurrentCell.RowIndex;
+            //string tempID = dgvTypeRoom.Rows[r].Cells[0].Value.ToString();
+
+            string tempID = txtRoomType.Text;
 
             var Query = (from RT in db.LoaiPhongs
                          where RT.MaLoai == txtRoomType.Text.Trim()

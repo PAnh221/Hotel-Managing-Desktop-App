@@ -34,6 +34,7 @@ namespace Nhom15_FinalProject
         public virtual DbSet<Phong> Phongs { get; set; }
         public virtual DbSet<province> provinces { get; set; }
         public virtual DbSet<SuDungDichVu> SuDungDichVus { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<ThanhToan> ThanhToans { get; set; }
         public virtual DbSet<ThuePhong> ThuePhongs { get; set; }
     }

@@ -141,6 +141,9 @@
     <Compile Include="SuDungDichVu.cs">
       <DependentUpon>HotelDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>HotelDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ThanhToan.cs">
       <DependentUpon>HotelDBModel.tt</DependentUpon>
     </Compile>

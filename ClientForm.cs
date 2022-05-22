@@ -21,6 +21,8 @@ namespace Nhom15_FinalProject
 
         private void ClientForm_Load(object sender, EventArgs e)
         {
+            pbSave.Visible = false;
+            pbCancel.Visible = false;
             mySetKhachHang();
 
             setProvince();
@@ -205,13 +207,20 @@ namespace Nhom15_FinalProject
             {
                 try
                 {
+
+                    var Query1 = (from C in db.communes
+                                  where C.commune_name == cbCommune.Text
+                                  select C);
+
+                    var cid = Query1.FirstOrDefault<commune>();
+
                     KhachHang KH = new KhachHang();
                     KH.CMND = txtID.Text.Trim();
                     KH.TenKH = txtName.Text.Trim();
                     KH.DiaChi = txtAddress.Text.Trim() + "," + cbCommune.Text.Trim() + "," + cbDist.Text.Trim();
                     KH.SoDienThoai = txtPhoneNumber.Text.Trim();
                     KH.Nu = ckbFemale.Checked;
-                    KH.commune_id = "10";
+                    KH.commune_id = cid.commune_id;
                     db.KhachHangs.Add(KH);
                     db.SaveChanges();
                 }
@@ -240,15 +249,18 @@ namespace Nhom15_FinalProject
 
         private void pbDelete_Click(object sender, EventArgs e)
         {
-            int r = dgvClient.CurrentCell.RowIndex;
-            string tempDID = dgvClient.Rows[r].Cells[0].Value.ToString();
-            KhachHang Q = db.KhachHangs.Single(x => x.CMND == tempDID);
 
-            //db.districts.DeleteOnSubmit(DistQ);
-            //db.SubmitChanges();
-            db.KhachHangs.Remove(Q);
-            db.SaveChanges();
-            mySetKhachHang();
+            if (dgvClient.CurrentCell != null) {
+                int r = dgvClient.CurrentCell.RowIndex;
+                string tempDID = dgvClient.Rows[r].Cells[0].Value.ToString();
+                KhachHang Q = db.KhachHangs.Single(x => x.CMND == tempDID);
+
+                //db.districts.DeleteOnSubmit(DistQ);
+                //db.SubmitChanges();
+                db.KhachHangs.Remove(Q);
+                db.SaveChanges();
+                mySetKhachHang();
+            }
         }
     }
 }

@@ -22,7 +22,8 @@ namespace Nhom15_FinalProject
 
         private void StaffForm_Load(object sender, EventArgs e)
         {
-
+            pbSave.Visible = false;
+            pbCancel.Visible = false;
             mySetNhanVien();
             setProvince();
             cbProv.SelectedIndex = 0;
@@ -276,13 +277,19 @@ namespace Nhom15_FinalProject
             {
                 try
                 {
+                    var Query1 = (from C in db.communes
+                                  where C.commune_name == cbCommune.Text
+                                  select C);
+
+                    var cid = Query1.FirstOrDefault<commune>();
+
                     NhanVien NV = new NhanVien();
                     NV.MaNV = txtID.Text.Trim();
                     NV.TenNV = txtName.Text.Trim();
                     NV.DiaChi = txtAddress.Text.Trim() + "," + cbCommune.Text.Trim() + "," + cbDist.Text.Trim();
 
                     NV.Nu = ckbFemale.Checked;
-                    NV.commune_id = "10";
+                    NV.commune_id = cid.commune_id;
                     db.NhanViens.Add(NV);
                     db.SaveChanges();
                 }
@@ -298,15 +305,18 @@ namespace Nhom15_FinalProject
 
         private void pbDelete_Click(object sender, EventArgs e)
         {
-            int r = dgvStaff.CurrentCell.RowIndex;
-            string tempDID = dgvStaff.Rows[r].Cells[0].Value.ToString();
-            NhanVien Q = db.NhanViens.Single(x => x.MaNV ==tempDID);
+            if (dgvStaff.CurrentCell != null)
+            {
+                int r = dgvStaff.CurrentCell.RowIndex;
+                string tempDID = dgvStaff.Rows[r].Cells[0].Value.ToString();
+                NhanVien Q = db.NhanViens.Single(x => x.MaNV == tempDID);
 
-            //db.districts.DeleteOnSubmit(DistQ);
-            //db.SubmitChanges();
-            db.NhanViens.Remove(Q);
-            db.SaveChanges();
-            mySetNhanVien();
+                //db.districts.DeleteOnSubmit(DistQ);
+                //db.SubmitChanges();
+                db.NhanViens.Remove(Q);
+                db.SaveChanges();
+                mySetNhanVien();
+            }
         }
     }
     }

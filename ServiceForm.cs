@@ -21,6 +21,8 @@ namespace Nhom15_FinalProject
 
         private void ServiceForm_Load(object sender, EventArgs e)
         {
+            pbSave.Visible = false;
+            pbCancel.Visible = false;
             mySetService();
         }
 
@@ -162,13 +164,17 @@ namespace Nhom15_FinalProject
 
         private void pbDelete_Click(object sender, EventArgs e)
         {
-            int r = dgvService.CurrentCell.RowIndex;
-            string tempDID = dgvService.Rows[r].Cells[0].Value.ToString();
-            DichVu Q = db.DichVus.Single(x => x.MaDV == tempDID);
+            if(dgvService.CurrentCell != null)
+            {
+                int r = dgvService.CurrentCell.RowIndex;
+                string tempDID = dgvService.Rows[r].Cells[0].Value.ToString();
+                DichVu Q = db.DichVus.Single(x => x.MaDV == tempDID);
 
-            db.DichVus.Remove(Q);
-            db.SaveChanges();
-            mySetService();
+                db.DichVus.Remove(Q);
+                db.SaveChanges();
+                mySetService();
+            }
+
         }
     }
 }

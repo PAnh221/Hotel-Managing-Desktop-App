@@ -25,7 +25,6 @@ namespace Nhom15_FinalProject
         public string DiaChi { get; set; }
         public string SoDienThoai { get; set; }
         public Nullable<bool> Nu { get; set; }
-        public Nullable<System.DateTime> NgaySinh { get; set; }
         public string commune_id { get; set; }
     
         public virtual commune commune { get; set; }
