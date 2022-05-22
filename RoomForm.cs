@@ -33,6 +33,9 @@ namespace Nhom15_FinalProject
             cmbRoomType.DisplayMember = "MaLoai";
             //cmbRoomType.ValueMember = "MaPhong";
             MySetRoomForm();
+
+            pbCancel.Visible = false;
+            pbSave.Visible = false;
         }
 
         #region Events Mouse

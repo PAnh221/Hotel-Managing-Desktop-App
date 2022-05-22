@@ -49,12 +49,6 @@ namespace Nhom15_FinalProject
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbDelete = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Area = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Used = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvRoom = new System.Windows.Forms.DataGridView();
@@ -302,60 +296,6 @@ namespace Nhom15_FinalProject
             this.pbEdit.MouseEnter += new System.EventHandler(this.pbEdit_MouseEnter);
             this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
             // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "GiaThue";
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Width = 125;
-            // 
-            // Area
-            // 
-            this.Area.DataPropertyName = "DienTich";
-            this.Area.HeaderText = "Area";
-            this.Area.MinimumWidth = 6;
-            this.Area.Name = "Area";
-            this.Area.ReadOnly = true;
-            this.Area.Width = 125;
-            // 
-            // Note
-            // 
-            this.Note.DataPropertyName = "GhiChu";
-            this.Note.HeaderText = "Note";
-            this.Note.MinimumWidth = 6;
-            this.Note.Name = "Note";
-            this.Note.ReadOnly = true;
-            this.Note.Width = 125;
-            // 
-            // Used
-            // 
-            this.Used.DataPropertyName = "TrangThai";
-            this.Used.HeaderText = "Used";
-            this.Used.MinimumWidth = 6;
-            this.Used.Name = "Used";
-            this.Used.ReadOnly = true;
-            this.Used.Width = 125;
-            // 
-            // RoomType
-            // 
-            this.RoomType.DataPropertyName = "MaLoai";
-            this.RoomType.HeaderText = "Room Type";
-            this.RoomType.MinimumWidth = 6;
-            this.RoomType.Name = "RoomType";
-            this.RoomType.ReadOnly = true;
-            this.RoomType.Width = 125;
-            // 
-            // RoomID
-            // 
-            this.RoomID.DataPropertyName = "MaPhong";
-            this.RoomID.HeaderText = "Room ID";
-            this.RoomID.MinimumWidth = 6;
-            this.RoomID.Name = "RoomID";
-            this.RoomID.ReadOnly = true;
-            this.RoomID.Width = 125;
-            // 
             // pbBack
             // 
             this.pbBack.Image = ((System.Drawing.Image)(resources.GetObject("pbBack.Image")));
@@ -382,13 +322,6 @@ namespace Nhom15_FinalProject
             this.dgvRoom.AllowUserToAddRows = false;
             this.dgvRoom.AllowUserToDeleteRows = false;
             this.dgvRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RoomID,
-            this.RoomType,
-            this.Used,
-            this.Note,
-            this.Area,
-            this.Price});
             this.dgvRoom.Location = new System.Drawing.Point(904, 315);
             this.dgvRoom.Margin = new System.Windows.Forms.Padding(4);
             this.dgvRoom.Name = "dgvRoom";
@@ -488,12 +421,6 @@ namespace Nhom15_FinalProject
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbDelete;
         private System.Windows.Forms.PictureBox pbEdit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Area;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Note;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Used;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
         private System.Windows.Forms.PictureBox pbBack;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgvRoom;

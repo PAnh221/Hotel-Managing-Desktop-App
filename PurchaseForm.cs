@@ -39,6 +39,9 @@ namespace Nhom15_FinalProject
 
             MySetPurchaseForm();
 
+            pbCancel.Visible = false;
+            pbSave.Visible = false;
+
         }
 
         #region Events Mouse

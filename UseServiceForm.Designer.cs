@@ -44,11 +44,6 @@ namespace Nhom15_FinalProject
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
-            this.Paid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ServiceID = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvUseService = new System.Windows.Forms.DataGridView();
             this.pbBack = new System.Windows.Forms.PictureBox();
@@ -233,53 +228,6 @@ namespace Nhom15_FinalProject
             this.pbEdit.MouseEnter += new System.EventHandler(this.pbEdit_MouseEnter);
             this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
             // 
-            // Paid
-            // 
-            this.Paid.DataPropertyName = "TrangThai";
-            this.Paid.HeaderText = "Paid";
-            this.Paid.MinimumWidth = 6;
-            this.Paid.Name = "Paid";
-            this.Paid.ReadOnly = true;
-            this.Paid.Width = 125;
-            // 
-            // Amount
-            // 
-            this.Amount.DataPropertyName = "SoLuong";
-            this.Amount.HeaderText = "Amount";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.Width = 125;
-            // 
-            // DateUse
-            // 
-            this.DateUse.DataPropertyName = "NgaySuDung";
-            this.DateUse.HeaderText = "Date Use";
-            this.DateUse.MinimumWidth = 6;
-            this.DateUse.Name = "DateUse";
-            this.DateUse.ReadOnly = true;
-            this.DateUse.Width = 125;
-            // 
-            // ServiceID
-            // 
-            this.ServiceID.DataPropertyName = "MaDV";
-            this.ServiceID.HeaderText = "Service";
-            this.ServiceID.MinimumWidth = 6;
-            this.ServiceID.Name = "ServiceID";
-            this.ServiceID.ReadOnly = true;
-            this.ServiceID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ServiceID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ServiceID.Width = 125;
-            // 
-            // RoomID
-            // 
-            this.RoomID.DataPropertyName = "MaPhong";
-            this.RoomID.HeaderText = "Room ID";
-            this.RoomID.MinimumWidth = 6;
-            this.RoomID.Name = "RoomID";
-            this.RoomID.ReadOnly = true;
-            this.RoomID.Width = 125;
-            // 
             // txtFind
             // 
             this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -294,12 +242,6 @@ namespace Nhom15_FinalProject
             this.dgvUseService.AllowUserToAddRows = false;
             this.dgvUseService.AllowUserToDeleteRows = false;
             this.dgvUseService.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUseService.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RoomID,
-            this.ServiceID,
-            this.DateUse,
-            this.Amount,
-            this.Paid});
             this.dgvUseService.Location = new System.Drawing.Point(904, 315);
             this.dgvUseService.Margin = new System.Windows.Forms.Padding(4);
             this.dgvUseService.Name = "dgvUseService";
@@ -404,11 +346,6 @@ namespace Nhom15_FinalProject
         private System.Windows.Forms.PictureBox pbSave;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbEdit;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Paid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateUse;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ServiceID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgvUseService;
         private System.Windows.Forms.PictureBox pbBack;

@@ -44,11 +44,6 @@ namespace Nhom15_FinalProject
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.pbAdd = new System.Windows.Forms.PictureBox();
-            this.Paid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Deposit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvRoom = new System.Windows.Forms.DataGridView();
             this.pbBack = new System.Windows.Forms.PictureBox();
@@ -231,52 +226,6 @@ namespace Nhom15_FinalProject
             this.pbAdd.MouseEnter += new System.EventHandler(this.pbAdd_MouseEnter);
             this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
             // 
-            // Paid
-            // 
-            this.Paid.DataPropertyName = "TrangThai";
-            this.Paid.HeaderText = "Paid";
-            this.Paid.MinimumWidth = 6;
-            this.Paid.Name = "Paid";
-            this.Paid.ReadOnly = true;
-            this.Paid.Width = 125;
-            // 
-            // Deposit
-            // 
-            this.Deposit.DataPropertyName = "DatCoc";
-            this.Deposit.HeaderText = "Deposit";
-            this.Deposit.MinimumWidth = 6;
-            this.Deposit.Name = "Deposit";
-            this.Deposit.ReadOnly = true;
-            this.Deposit.Width = 125;
-            // 
-            // CheckIn
-            // 
-            this.CheckIn.DataPropertyName = "NgayVao";
-            this.CheckIn.HeaderText = "Check In";
-            this.CheckIn.MinimumWidth = 6;
-            this.CheckIn.Name = "CheckIn";
-            this.CheckIn.ReadOnly = true;
-            this.CheckIn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CheckIn.Width = 125;
-            // 
-            // CMND
-            // 
-            this.CMND.DataPropertyName = "CMND";
-            this.CMND.HeaderText = "ID";
-            this.CMND.MinimumWidth = 6;
-            this.CMND.Name = "CMND";
-            this.CMND.ReadOnly = true;
-            this.CMND.Width = 125;
-            // 
-            // RoomID
-            // 
-            this.RoomID.DataPropertyName = "MaPhong";
-            this.RoomID.HeaderText = "Room ID";
-            this.RoomID.MinimumWidth = 6;
-            this.RoomID.Name = "RoomID";
-            this.RoomID.ReadOnly = true;
-            this.RoomID.Width = 125;
-            // 
             // txtFind
             // 
             this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -291,12 +240,6 @@ namespace Nhom15_FinalProject
             this.dgvRoom.AllowUserToAddRows = false;
             this.dgvRoom.AllowUserToDeleteRows = false;
             this.dgvRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RoomID,
-            this.CMND,
-            this.CheckIn,
-            this.Deposit,
-            this.Paid});
             this.dgvRoom.Location = new System.Drawing.Point(905, 314);
             this.dgvRoom.Margin = new System.Windows.Forms.Padding(4);
             this.dgvRoom.Name = "dgvRoom";
@@ -401,11 +344,6 @@ namespace Nhom15_FinalProject
         private System.Windows.Forms.PictureBox pbSave;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.PictureBox pbAdd;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Paid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Deposit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CheckIn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgvRoom;
         private System.Windows.Forms.PictureBox pbBack;
