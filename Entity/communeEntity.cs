@@ -7,25 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Nhom15_FinalProject
+namespace Nhom15_FinalProject.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class district
+    public partial class communeEntity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public district()
+        public communeEntity()
         {
-            this.communes = new HashSet<commune>();
+            this.KhachHangs = new HashSet<KhachHangEntity>();
+            this.NhanViens = new HashSet<NhanVienEntity>();
         }
     
+        public string commune_id { get; set; }
+        public string commune_name { get; set; }
+        public Nullable<int> degree { get; set; }
         public string district_id { get; set; }
-        public string district_name { get; set; }
-        public string province_id { get; set; }
     
+        public virtual districtEntity district { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<commune> communes { get; set; }
-        public virtual province province { get; set; }
+        public virtual ICollection<KhachHangEntity> KhachHangs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NhanVienEntity> NhanViens { get; set; }
     }
 }

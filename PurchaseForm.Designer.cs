@@ -36,7 +36,7 @@ namespace Nhom15_FinalProject
             this.label6 = new System.Windows.Forms.Label();
             this.lblStaffID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbRoomID = new System.Windows.Forms.ComboBox();
+            this.cmbRoomUseID = new System.Windows.Forms.ComboBox();
             this.dtpPurchaseDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,14 +52,6 @@ namespace Nhom15_FinalProject
             this.label1 = new System.Windows.Forms.Label();
             this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvPurchase = new System.Windows.Forms.DataGridView();
-            this.PurchaseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StaffID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PurchaseDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Paid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Receipt = new System.Windows.Forms.DataGridViewLinkColumn();
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
@@ -144,16 +136,16 @@ namespace Nhom15_FinalProject
             this.label2.TabIndex = 17;
             this.label2.Text = "Purchase ID:";
             // 
-            // cmbRoomID
+            // cmbRoomUseID
             // 
-            this.cmbRoomID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRoomID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cmbRoomID.FormattingEnabled = true;
-            this.cmbRoomID.Location = new System.Drawing.Point(244, 203);
-            this.cmbRoomID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbRoomID.Name = "cmbRoomID";
-            this.cmbRoomID.Size = new System.Drawing.Size(233, 37);
-            this.cmbRoomID.TabIndex = 41;
+            this.cmbRoomUseID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRoomUseID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cmbRoomUseID.FormattingEnabled = true;
+            this.cmbRoomUseID.Location = new System.Drawing.Point(244, 203);
+            this.cmbRoomUseID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbRoomUseID.Name = "cmbRoomUseID";
+            this.cmbRoomUseID.Size = new System.Drawing.Size(233, 37);
+            this.cmbRoomUseID.TabIndex = 41;
             // 
             // dtpPurchaseDate
             // 
@@ -183,9 +175,9 @@ namespace Nhom15_FinalProject
             this.label4.Location = new System.Drawing.Point(8, 212);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 31);
+            this.label4.Size = new System.Drawing.Size(185, 31);
             this.label4.TabIndex = 19;
-            this.label4.Text = "Room ID:";
+            this.label4.Text = "Room Use ID:";
             // 
             // txtPurchaseID
             // 
@@ -238,6 +230,7 @@ namespace Nhom15_FinalProject
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDelete.TabIndex = 139;
             this.pbDelete.TabStop = false;
+            this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
             this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
             this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
             // 
@@ -269,7 +262,7 @@ namespace Nhom15_FinalProject
             this.gbInfor.Controls.Add(this.label6);
             this.gbInfor.Controls.Add(this.lblStaffID);
             this.gbInfor.Controls.Add(this.label2);
-            this.gbInfor.Controls.Add(this.cmbRoomID);
+            this.gbInfor.Controls.Add(this.cmbRoomUseID);
             this.gbInfor.Controls.Add(this.dtpPurchaseDate);
             this.gbInfor.Controls.Add(this.label3);
             this.gbInfor.Controls.Add(this.txtTotal);
@@ -321,15 +314,6 @@ namespace Nhom15_FinalProject
             this.dgvPurchase.AllowUserToAddRows = false;
             this.dgvPurchase.AllowUserToDeleteRows = false;
             this.dgvPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPurchase.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PurchaseID,
-            this.Total,
-            this.RoomID,
-            this.StaffID,
-            this.CheckIn,
-            this.PurchaseDate,
-            this.Paid,
-            this.Receipt});
             this.dgvPurchase.Location = new System.Drawing.Point(905, 314);
             this.dgvPurchase.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPurchase.Name = "dgvPurchase";
@@ -337,79 +321,6 @@ namespace Nhom15_FinalProject
             this.dgvPurchase.RowHeadersWidth = 51;
             this.dgvPurchase.Size = new System.Drawing.Size(791, 421);
             this.dgvPurchase.TabIndex = 130;
-            // 
-            // PurchaseID
-            // 
-            this.PurchaseID.DataPropertyName = "MaThanhToan";
-            this.PurchaseID.HeaderText = "Purchase ID";
-            this.PurchaseID.MinimumWidth = 6;
-            this.PurchaseID.Name = "PurchaseID";
-            this.PurchaseID.ReadOnly = true;
-            this.PurchaseID.Width = 125;
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "ThanhTien";
-            this.Total.HeaderText = "Total";
-            this.Total.MinimumWidth = 6;
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 125;
-            // 
-            // RoomID
-            // 
-            this.RoomID.DataPropertyName = "MaPhong";
-            this.RoomID.HeaderText = "Room ID";
-            this.RoomID.MinimumWidth = 6;
-            this.RoomID.Name = "RoomID";
-            this.RoomID.ReadOnly = true;
-            this.RoomID.Width = 125;
-            // 
-            // StaffID
-            // 
-            this.StaffID.DataPropertyName = "MaNV";
-            this.StaffID.HeaderText = "Staff ID";
-            this.StaffID.MinimumWidth = 6;
-            this.StaffID.Name = "StaffID";
-            this.StaffID.ReadOnly = true;
-            this.StaffID.Width = 125;
-            // 
-            // CheckIn
-            // 
-            this.CheckIn.HeaderText = "Check In";
-            this.CheckIn.MinimumWidth = 6;
-            this.CheckIn.Name = "CheckIn";
-            this.CheckIn.ReadOnly = true;
-            this.CheckIn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CheckIn.Width = 125;
-            // 
-            // PurchaseDate
-            // 
-            this.PurchaseDate.DataPropertyName = "NgayThanhToan";
-            this.PurchaseDate.HeaderText = "Purchase Date";
-            this.PurchaseDate.MinimumWidth = 6;
-            this.PurchaseDate.Name = "PurchaseDate";
-            this.PurchaseDate.ReadOnly = true;
-            this.PurchaseDate.Width = 125;
-            // 
-            // Paid
-            // 
-            this.Paid.DataPropertyName = "TrangThai";
-            this.Paid.HeaderText = "Paid";
-            this.Paid.MinimumWidth = 6;
-            this.Paid.Name = "Paid";
-            this.Paid.ReadOnly = true;
-            this.Paid.Width = 125;
-            // 
-            // Receipt
-            // 
-            this.Receipt.HeaderText = "Receipt";
-            this.Receipt.MinimumWidth = 6;
-            this.Receipt.Name = "Receipt";
-            this.Receipt.ReadOnly = true;
-            this.Receipt.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Receipt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Receipt.Width = 125;
             // 
             // pbSave
             // 
@@ -434,6 +345,7 @@ namespace Nhom15_FinalProject
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAdd.TabIndex = 134;
             this.pbAdd.TabStop = false;
+            this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
             this.pbAdd.MouseEnter += new System.EventHandler(this.pbAdd_MouseEnter);
             this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
             // 
@@ -447,6 +359,7 @@ namespace Nhom15_FinalProject
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEdit.TabIndex = 133;
             this.pbEdit.TabStop = false;
+            this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
             this.pbEdit.MouseEnter += new System.EventHandler(this.pbEdit_MouseEnter);
             this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
             // 
@@ -519,7 +432,7 @@ namespace Nhom15_FinalProject
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblStaffID;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbRoomID;
+        private System.Windows.Forms.ComboBox cmbRoomUseID;
         private System.Windows.Forms.DateTimePicker dtpPurchaseDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -535,14 +448,6 @@ namespace Nhom15_FinalProject
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgvPurchase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PurchaseID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StaffID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CheckIn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PurchaseDate;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Paid;
-        private System.Windows.Forms.DataGridViewLinkColumn Receipt;
         private System.Windows.Forms.PictureBox pbSave;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbEdit;

@@ -5,18 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b603b26bb085479fb70f59084258b95d" Name="Diagram1">
-        <EntityTypeShape EntityType="HotelDMF_Model1.commune" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDMF_Model1.DichVu" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDMF_Model1.district" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDMF_Model1.KhachHang" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDMF_Model1.LoaiPhong" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDMF_Model1.NhanVien" Width="1.5" PointX="7.5" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDMF_Model1.Phong" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDMF_Model1.province" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDMF_Model1.SuDungDichVu" Width="1.5" PointX="12" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDMF_Model1.communeEntity" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDMF_Model1.DichVuEntity" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDMF_Model1.districtEntity" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDMF_Model1.KhachHangEntity" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDMF_Model1.LoaiPhongEntity" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDMF_Model1.NhanVienEntity" Width="1.5" PointX="7.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDMF_Model1.PhongEntity" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDMF_Model1.provinceEntity" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDMF_Model1.SuDungDichVuEntity" Width="1.5" PointX="12" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDMF_Model1.sysdiagram" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDMF_Model1.ThanhToan" Width="1.5" PointX="12" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDMF_Model1.ThuePhong" Width="1.5" PointX="9.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDMF_Model1.ThanhToanEntity" Width="1.5" PointX="12" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDMF_Model1.ThuePhongEntity" Width="1.5" PointX="9.75" PointY="5.5" IsExpanded="true" />
         <AssociationConnector Association="HotelDMF_Model1.FK__commune__distric__37A5467C" ManuallyRouted="false" />
         <AssociationConnector Association="HotelDMF_Model1.FK_KhachHang_commune" ManuallyRouted="false" />
         <AssociationConnector Association="HotelDMF_Model1.FK_NhanVien_commune" ManuallyRouted="false" />

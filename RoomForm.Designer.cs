@@ -270,6 +270,7 @@ namespace Nhom15_FinalProject
             this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAdd.TabIndex = 134;
             this.pbAdd.TabStop = false;
+            this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
             this.pbAdd.MouseEnter += new System.EventHandler(this.pbAdd_MouseEnter);
             this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
             // 
@@ -283,6 +284,7 @@ namespace Nhom15_FinalProject
             this.pbDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDelete.TabIndex = 133;
             this.pbDelete.TabStop = false;
+            this.pbDelete.Click += new System.EventHandler(this.pbDelete_Click);
             this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
             this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
             // 
@@ -296,6 +298,7 @@ namespace Nhom15_FinalProject
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEdit.TabIndex = 132;
             this.pbEdit.TabStop = false;
+            this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
             this.pbEdit.MouseEnter += new System.EventHandler(this.pbEdit_MouseEnter);
             this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
             // 

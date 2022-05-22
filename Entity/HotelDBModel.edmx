@@ -320,7 +320,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HotelDMF_Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="commune">
+        <EntityType Name="communeEntity">
           <Key>
             <PropertyRef Name="commune_id" />
           </Key>
@@ -332,7 +332,7 @@
           <NavigationProperty Name="KhachHangs" Relationship="Self.FK_KhachHang_commune" FromRole="commune" ToRole="KhachHang" />
           <NavigationProperty Name="NhanViens" Relationship="Self.FK_NhanVien_commune" FromRole="commune" ToRole="NhanVien" />
         </EntityType>
-        <EntityType Name="DichVu">
+        <EntityType Name="DichVuEntity">
           <Key>
             <PropertyRef Name="MaDV" />
           </Key>
@@ -342,7 +342,7 @@
           <Property Name="DonViTinh" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="SuDungDichVus" Relationship="Self.FK_SuDungDichVu_DichVu1" FromRole="DichVu" ToRole="SuDungDichVu" />
         </EntityType>
-        <EntityType Name="district">
+        <EntityType Name="districtEntity">
           <Key>
             <PropertyRef Name="district_id" />
           </Key>
@@ -352,7 +352,7 @@
           <NavigationProperty Name="communes" Relationship="Self.FK__commune__distric__37A5467C" FromRole="district" ToRole="commune" />
           <NavigationProperty Name="province" Relationship="Self.FK__district__provin__38996AB5" FromRole="district" ToRole="province" />
         </EntityType>
-        <EntityType Name="KhachHang">
+        <EntityType Name="KhachHangEntity">
           <Key>
             <PropertyRef Name="CMND" />
           </Key>
@@ -365,7 +365,7 @@
           <NavigationProperty Name="commune" Relationship="Self.FK_KhachHang_commune" FromRole="KhachHang" ToRole="commune" />
           <NavigationProperty Name="ThuePhongs" Relationship="Self.FK_ThuePhong_KhachHang" FromRole="KhachHang" ToRole="ThuePhong" />
         </EntityType>
-        <EntityType Name="LoaiPhong">
+        <EntityType Name="LoaiPhongEntity">
           <Key>
             <PropertyRef Name="MaLoai" />
           </Key>
@@ -373,7 +373,7 @@
           <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Phongs" Relationship="Self.FK_Phong_LoaiPhong" FromRole="LoaiPhong" ToRole="Phong" />
         </EntityType>
-        <EntityType Name="NhanVien">
+        <EntityType Name="NhanVienEntity">
           <Key>
             <PropertyRef Name="MaNV" />
           </Key>
@@ -385,7 +385,7 @@
           <NavigationProperty Name="commune" Relationship="Self.FK_NhanVien_commune" FromRole="NhanVien" ToRole="commune" />
           <NavigationProperty Name="ThuePhongs" Relationship="Self.FK_ThuePhong_NhanVien" FromRole="NhanVien" ToRole="ThuePhong" />
         </EntityType>
-        <EntityType Name="Phong">
+        <EntityType Name="PhongEntity">
           <Key>
             <PropertyRef Name="MaPhong" />
           </Key>
@@ -399,7 +399,7 @@
           <NavigationProperty Name="LoaiPhong" Relationship="Self.FK_Phong_LoaiPhong" FromRole="Phong" ToRole="LoaiPhong" />
           <NavigationProperty Name="ThuePhongs" Relationship="Self.FK_ThuePhong_Phong" FromRole="Phong" ToRole="ThuePhong" />
         </EntityType>
-        <EntityType Name="province">
+        <EntityType Name="provinceEntity">
           <Key>
             <PropertyRef Name="province_id" />
           </Key>
@@ -407,7 +407,7 @@
           <Property Name="province_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="districts" Relationship="Self.FK__district__provin__38996AB5" FromRole="province" ToRole="district" />
         </EntityType>
-        <EntityType Name="SuDungDichVu">
+        <EntityType Name="SuDungDichVuEntity">
           <Key>
             <PropertyRef Name="MaPhong" />
             <PropertyRef Name="MaDV" />
@@ -430,7 +430,7 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="ThanhToan">
+        <EntityType Name="ThanhToanEntity">
           <Key>
             <PropertyRef Name="MaThanhToan" />
           </Key>
@@ -442,7 +442,7 @@
           <Property Name="NgayVao" Type="DateTime" Precision="0" />
           <NavigationProperty Name="ThuePhong" Relationship="Self.FK_ThanhToan_ThuePhong" FromRole="ThanhToan" ToRole="ThuePhong" />
         </EntityType>
-        <EntityType Name="ThuePhong">
+        <EntityType Name="ThuePhongEntity">
           <Key>
             <PropertyRef Name="MaThuePhong" />
           </Key>
@@ -459,10 +459,10 @@
           <NavigationProperty Name="ThanhToans" Relationship="Self.FK_ThanhToan_ThuePhong" FromRole="ThuePhong" ToRole="ThanhToan" />
         </EntityType>
         <Association Name="FK__commune__distric__37A5467C">
-          <End Role="district" Type="Self.district" Multiplicity="0..1">
+          <End Role="district" Type="HotelDMF_Model1.districtEntity" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="commune" Type="Self.commune" Multiplicity="*" />
+          <End Role="commune" Type="HotelDMF_Model1.communeEntity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="district">
               <PropertyRef Name="district_id" />
@@ -473,8 +473,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_KhachHang_commune">
-          <End Role="commune" Type="Self.commune" Multiplicity="0..1" />
-          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="*" />
+          <End Role="commune" Type="HotelDMF_Model1.communeEntity" Multiplicity="0..1" />
+          <End Role="KhachHang" Type="HotelDMF_Model1.KhachHangEntity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="commune">
               <PropertyRef Name="commune_id" />
@@ -485,8 +485,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NhanVien_commune">
-          <End Role="commune" Type="Self.commune" Multiplicity="1" />
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+          <End Role="commune" Type="HotelDMF_Model1.communeEntity" Multiplicity="1" />
+          <End Role="NhanVien" Type="HotelDMF_Model1.NhanVienEntity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="commune">
               <PropertyRef Name="commune_id" />
@@ -497,8 +497,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SuDungDichVu_DichVu1">
-          <End Role="DichVu" Type="Self.DichVu" Multiplicity="1" />
-          <End Role="SuDungDichVu" Type="Self.SuDungDichVu" Multiplicity="*" />
+          <End Role="DichVu" Type="HotelDMF_Model1.DichVuEntity" Multiplicity="1" />
+          <End Role="SuDungDichVu" Type="HotelDMF_Model1.SuDungDichVuEntity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DichVu">
               <PropertyRef Name="MaDV" />
@@ -509,10 +509,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__district__provin__38996AB5">
-          <End Role="province" Type="Self.province" Multiplicity="1">
+          <End Role="province" Type="HotelDMF_Model1.provinceEntity" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="district" Type="Self.district" Multiplicity="*" />
+          <End Role="district" Type="HotelDMF_Model1.districtEntity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="province">
               <PropertyRef Name="province_id" />
@@ -523,8 +523,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ThuePhong_KhachHang">
-          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
-          <End Role="ThuePhong" Type="Self.ThuePhong" Multiplicity="*" />
+          <End Role="KhachHang" Type="HotelDMF_Model1.KhachHangEntity" Multiplicity="1" />
+          <End Role="ThuePhong" Type="HotelDMF_Model1.ThuePhongEntity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KhachHang">
               <PropertyRef Name="CMND" />
@@ -535,8 +535,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Phong_LoaiPhong">
-          <End Role="LoaiPhong" Type="Self.LoaiPhong" Multiplicity="0..1" />
-          <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+          <End Role="LoaiPhong" Type="HotelDMF_Model1.LoaiPhongEntity" Multiplicity="0..1" />
+          <End Role="Phong" Type="HotelDMF_Model1.PhongEntity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LoaiPhong">
               <PropertyRef Name="MaLoai" />
@@ -547,8 +547,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ThuePhong_NhanVien">
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
-          <End Role="ThuePhong" Type="Self.ThuePhong" Multiplicity="*" />
+          <End Role="NhanVien" Type="HotelDMF_Model1.NhanVienEntity" Multiplicity="1" />
+          <End Role="ThuePhong" Type="HotelDMF_Model1.ThuePhongEntity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NhanVien">
               <PropertyRef Name="MaNV" />
@@ -559,8 +559,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ThuePhong_Phong">
-          <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
-          <End Role="ThuePhong" Type="Self.ThuePhong" Multiplicity="*" />
+          <End Role="Phong" Type="HotelDMF_Model1.PhongEntity" Multiplicity="1" />
+          <End Role="ThuePhong" Type="HotelDMF_Model1.ThuePhongEntity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Phong">
               <PropertyRef Name="MaPhong" />
@@ -571,8 +571,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SuDungDichVu_ThuePhong">
-          <End Role="ThuePhong" Type="Self.ThuePhong" Multiplicity="0..1" />
-          <End Role="SuDungDichVu" Type="Self.SuDungDichVu" Multiplicity="*" />
+          <End Role="ThuePhong" Type="HotelDMF_Model1.ThuePhongEntity" Multiplicity="0..1" />
+          <End Role="SuDungDichVu" Type="HotelDMF_Model1.SuDungDichVuEntity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ThuePhong">
               <PropertyRef Name="MaThuePhong" />
@@ -583,8 +583,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ThanhToan_ThuePhong">
-          <End Role="ThuePhong" Type="Self.ThuePhong" Multiplicity="1" />
-          <End Role="ThanhToan" Type="Self.ThanhToan" Multiplicity="*" />
+          <End Role="ThuePhong" Type="HotelDMF_Model1.ThuePhongEntity" Multiplicity="1" />
+          <End Role="ThanhToan" Type="HotelDMF_Model1.ThanhToanEntity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ThuePhong">
               <PropertyRef Name="MaThuePhong" />
@@ -595,61 +595,61 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="HotelDBMF" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="communes" EntityType="Self.commune" />
-          <EntitySet Name="DichVus" EntityType="Self.DichVu" />
-          <EntitySet Name="districts" EntityType="Self.district" />
-          <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
-          <EntitySet Name="LoaiPhongs" EntityType="Self.LoaiPhong" />
-          <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
-          <EntitySet Name="Phongs" EntityType="Self.Phong" />
-          <EntitySet Name="provinces" EntityType="Self.province" />
-          <EntitySet Name="SuDungDichVus" EntityType="Self.SuDungDichVu" />
+          <EntitySet Name="communeEntities" EntityType="HotelDMF_Model1.communeEntity" />
+          <EntitySet Name="DichVuEntities" EntityType="HotelDMF_Model1.DichVuEntity" />
+          <EntitySet Name="districtEntities" EntityType="HotelDMF_Model1.districtEntity" />
+          <EntitySet Name="KhachHangEntities" EntityType="HotelDMF_Model1.KhachHangEntity" />
+          <EntitySet Name="LoaiPhongEntities" EntityType="HotelDMF_Model1.LoaiPhongEntity" />
+          <EntitySet Name="NhanVienEntities" EntityType="HotelDMF_Model1.NhanVienEntity" />
+          <EntitySet Name="PhongEntities" EntityType="HotelDMF_Model1.PhongEntity" />
+          <EntitySet Name="provinceEntities" EntityType="HotelDMF_Model1.provinceEntity" />
+          <EntitySet Name="SuDungDichVuEntities" EntityType="HotelDMF_Model1.SuDungDichVuEntity" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="ThanhToans" EntityType="Self.ThanhToan" />
-          <EntitySet Name="ThuePhongs" EntityType="Self.ThuePhong" />
+          <EntitySet Name="ThanhToanEntities" EntityType="HotelDMF_Model1.ThanhToanEntity" />
+          <EntitySet Name="ThuePhongEntities" EntityType="HotelDMF_Model1.ThuePhongEntity" />
           <AssociationSet Name="FK__commune__distric__37A5467C" Association="Self.FK__commune__distric__37A5467C">
-            <End Role="district" EntitySet="districts" />
-            <End Role="commune" EntitySet="communes" />
+            <End Role="district" EntitySet="districtEntities" />
+            <End Role="commune" EntitySet="communeEntities" />
           </AssociationSet>
           <AssociationSet Name="FK_KhachHang_commune" Association="Self.FK_KhachHang_commune">
-            <End Role="commune" EntitySet="communes" />
-            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="commune" EntitySet="communeEntities" />
+            <End Role="KhachHang" EntitySet="KhachHangEntities" />
           </AssociationSet>
           <AssociationSet Name="FK_NhanVien_commune" Association="Self.FK_NhanVien_commune">
-            <End Role="commune" EntitySet="communes" />
-            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="commune" EntitySet="communeEntities" />
+            <End Role="NhanVien" EntitySet="NhanVienEntities" />
           </AssociationSet>
           <AssociationSet Name="FK_SuDungDichVu_DichVu1" Association="Self.FK_SuDungDichVu_DichVu1">
-            <End Role="DichVu" EntitySet="DichVus" />
-            <End Role="SuDungDichVu" EntitySet="SuDungDichVus" />
+            <End Role="DichVu" EntitySet="DichVuEntities" />
+            <End Role="SuDungDichVu" EntitySet="SuDungDichVuEntities" />
           </AssociationSet>
           <AssociationSet Name="FK__district__provin__38996AB5" Association="Self.FK__district__provin__38996AB5">
-            <End Role="province" EntitySet="provinces" />
-            <End Role="district" EntitySet="districts" />
+            <End Role="province" EntitySet="provinceEntities" />
+            <End Role="district" EntitySet="districtEntities" />
           </AssociationSet>
           <AssociationSet Name="FK_ThuePhong_KhachHang" Association="Self.FK_ThuePhong_KhachHang">
-            <End Role="KhachHang" EntitySet="KhachHangs" />
-            <End Role="ThuePhong" EntitySet="ThuePhongs" />
+            <End Role="KhachHang" EntitySet="KhachHangEntities" />
+            <End Role="ThuePhong" EntitySet="ThuePhongEntities" />
           </AssociationSet>
           <AssociationSet Name="FK_Phong_LoaiPhong" Association="Self.FK_Phong_LoaiPhong">
-            <End Role="LoaiPhong" EntitySet="LoaiPhongs" />
-            <End Role="Phong" EntitySet="Phongs" />
+            <End Role="LoaiPhong" EntitySet="LoaiPhongEntities" />
+            <End Role="Phong" EntitySet="PhongEntities" />
           </AssociationSet>
           <AssociationSet Name="FK_ThuePhong_NhanVien" Association="Self.FK_ThuePhong_NhanVien">
-            <End Role="NhanVien" EntitySet="NhanViens" />
-            <End Role="ThuePhong" EntitySet="ThuePhongs" />
+            <End Role="NhanVien" EntitySet="NhanVienEntities" />
+            <End Role="ThuePhong" EntitySet="ThuePhongEntities" />
           </AssociationSet>
           <AssociationSet Name="FK_ThuePhong_Phong" Association="Self.FK_ThuePhong_Phong">
-            <End Role="Phong" EntitySet="Phongs" />
-            <End Role="ThuePhong" EntitySet="ThuePhongs" />
+            <End Role="Phong" EntitySet="PhongEntities" />
+            <End Role="ThuePhong" EntitySet="ThuePhongEntities" />
           </AssociationSet>
           <AssociationSet Name="FK_SuDungDichVu_ThuePhong" Association="Self.FK_SuDungDichVu_ThuePhong">
-            <End Role="ThuePhong" EntitySet="ThuePhongs" />
-            <End Role="SuDungDichVu" EntitySet="SuDungDichVus" />
+            <End Role="ThuePhong" EntitySet="ThuePhongEntities" />
+            <End Role="SuDungDichVu" EntitySet="SuDungDichVuEntities" />
           </AssociationSet>
           <AssociationSet Name="FK_ThanhToan_ThuePhong" Association="Self.FK_ThanhToan_ThuePhong">
-            <End Role="ThuePhong" EntitySet="ThuePhongs" />
-            <End Role="ThanhToan" EntitySet="ThanhToans" />
+            <End Role="ThuePhong" EntitySet="ThuePhongEntities" />
+            <End Role="ThanhToan" EntitySet="ThanhToanEntities" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -658,8 +658,8 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="HotelDMF_Model1StoreContainer" CdmEntityContainer="HotelDBMF">
-          <EntitySetMapping Name="communes">
-            <EntityTypeMapping TypeName="HotelDMF_Model1.commune">
+          <EntitySetMapping Name="communeEntities">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.communeEntity">
               <MappingFragment StoreEntitySet="commune">
                 <ScalarProperty Name="commune_id" ColumnName="commune_id" />
                 <ScalarProperty Name="commune_name" ColumnName="commune_name" />
@@ -668,8 +668,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DichVus">
-            <EntityTypeMapping TypeName="HotelDMF_Model1.DichVu">
+          <EntitySetMapping Name="DichVuEntities">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.DichVuEntity">
               <MappingFragment StoreEntitySet="DichVu">
                 <ScalarProperty Name="MaDV" ColumnName="MaDV" />
                 <ScalarProperty Name="TenDV" ColumnName="TenDV" />
@@ -678,8 +678,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="districts">
-            <EntityTypeMapping TypeName="HotelDMF_Model1.district">
+          <EntitySetMapping Name="districtEntities">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.districtEntity">
               <MappingFragment StoreEntitySet="district">
                 <ScalarProperty Name="district_id" ColumnName="district_id" />
                 <ScalarProperty Name="district_name" ColumnName="district_name" />
@@ -687,8 +687,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="KhachHangs">
-            <EntityTypeMapping TypeName="HotelDMF_Model1.KhachHang">
+          <EntitySetMapping Name="KhachHangEntities">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.KhachHangEntity">
               <MappingFragment StoreEntitySet="KhachHang">
                 <ScalarProperty Name="CMND" ColumnName="CMND" />
                 <ScalarProperty Name="TenKH" ColumnName="TenKH" />
@@ -699,16 +699,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LoaiPhongs">
-            <EntityTypeMapping TypeName="HotelDMF_Model1.LoaiPhong">
+          <EntitySetMapping Name="LoaiPhongEntities">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.LoaiPhongEntity">
               <MappingFragment StoreEntitySet="LoaiPhong">
                 <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
                 <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="NhanViens">
-            <EntityTypeMapping TypeName="HotelDMF_Model1.NhanVien">
+          <EntitySetMapping Name="NhanVienEntities">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.NhanVienEntity">
               <MappingFragment StoreEntitySet="NhanVien">
                 <ScalarProperty Name="MaNV" ColumnName="MaNV" />
                 <ScalarProperty Name="TenNV" ColumnName="TenNV" />
@@ -718,8 +718,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Phongs">
-            <EntityTypeMapping TypeName="HotelDMF_Model1.Phong">
+          <EntitySetMapping Name="PhongEntities">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.PhongEntity">
               <MappingFragment StoreEntitySet="Phong">
                 <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
                 <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
@@ -731,16 +731,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="provinces">
-            <EntityTypeMapping TypeName="HotelDMF_Model1.province">
+          <EntitySetMapping Name="provinceEntities">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.provinceEntity">
               <MappingFragment StoreEntitySet="province">
                 <ScalarProperty Name="province_id" ColumnName="province_id" />
                 <ScalarProperty Name="province_name" ColumnName="province_name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SuDungDichVus">
-            <EntityTypeMapping TypeName="HotelDMF_Model1.SuDungDichVu">
+          <EntitySetMapping Name="SuDungDichVuEntities">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.SuDungDichVuEntity">
               <MappingFragment StoreEntitySet="SuDungDichVu">
                 <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
                 <ScalarProperty Name="MaDV" ColumnName="MaDV" />
@@ -761,8 +761,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ThanhToans">
-            <EntityTypeMapping TypeName="HotelDMF_Model1.ThanhToan">
+          <EntitySetMapping Name="ThanhToanEntities">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.ThanhToanEntity">
               <MappingFragment StoreEntitySet="ThanhToan">
                 <ScalarProperty Name="MaThanhToan" ColumnName="MaThanhToan" />
                 <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
@@ -773,8 +773,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ThuePhongs">
-            <EntityTypeMapping TypeName="HotelDMF_Model1.ThuePhong">
+          <EntitySetMapping Name="ThuePhongEntities">
+            <EntityTypeMapping TypeName="HotelDMF_Model1.ThuePhongEntity">
               <MappingFragment StoreEntitySet="ThuePhong">
                 <ScalarProperty Name="MaThuePhong" ColumnName="MaThuePhong" />
                 <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />

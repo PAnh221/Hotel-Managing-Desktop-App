@@ -7,17 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Nhom15_FinalProject
+namespace Nhom15_FinalProject.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DichVu
+    public partial class DichVuEntity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DichVu()
+        public DichVuEntity()
         {
-            this.SuDungDichVus = new HashSet<SuDungDichVu>();
+            this.SuDungDichVus = new HashSet<SuDungDichVuEntity>();
         }
     
         public string MaDV { get; set; }
@@ -26,6 +26,6 @@ namespace Nhom15_FinalProject
         public string DonViTinh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SuDungDichVu> SuDungDichVus { get; set; }
+        public virtual ICollection<SuDungDichVuEntity> SuDungDichVus { get; set; }
     }
 }

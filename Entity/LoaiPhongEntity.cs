@@ -7,23 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Nhom15_FinalProject
+namespace Nhom15_FinalProject.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class LoaiPhong
+    public partial class LoaiPhongEntity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LoaiPhong()
+        public LoaiPhongEntity()
         {
-            this.Phongs = new HashSet<Phong>();
+            this.Phongs = new HashSet<PhongEntity>();
         }
     
         public string MaLoai { get; set; }
         public string TenLoai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Phong> Phongs { get; set; }
+        public virtual ICollection<PhongEntity> Phongs { get; set; }
     }
 }

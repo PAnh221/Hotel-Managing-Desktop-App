@@ -7,29 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Nhom15_FinalProject
+namespace Nhom15_FinalProject.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class commune
+    public partial class PhongEntity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public commune()
+        public PhongEntity()
         {
-            this.KhachHangs = new HashSet<KhachHang>();
-            this.NhanViens = new HashSet<NhanVien>();
+            this.ThuePhongs = new HashSet<ThuePhongEntity>();
         }
     
-        public string commune_id { get; set; }
-        public string commune_name { get; set; }
-        public Nullable<int> degree { get; set; }
-        public string district_id { get; set; }
+        public string MaPhong { get; set; }
+        public string MaLoai { get; set; }
+        public Nullable<bool> TrangThai { get; set; }
+        public string GhiChu { get; set; }
+        public string DienTich { get; set; }
+        public Nullable<double> GiaThue { get; set; }
+        public Nullable<int> SoGiuong { get; set; }
     
-        public virtual district district { get; set; }
+        public virtual LoaiPhongEntity LoaiPhong { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KhachHang> KhachHangs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NhanVien> NhanViens { get; set; }
+        public virtual ICollection<ThuePhongEntity> ThuePhongs { get; set; }
     }
 }

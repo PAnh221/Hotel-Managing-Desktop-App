@@ -7,27 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Nhom15_FinalProject
+namespace Nhom15_FinalProject.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class NhanVien
+    public partial class provinceEntity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NhanVien()
+        public provinceEntity()
         {
-            this.ThuePhongs = new HashSet<ThuePhong>();
+            this.districts = new HashSet<districtEntity>();
         }
     
-        public string MaNV { get; set; }
-        public string TenNV { get; set; }
-        public string DiaChi { get; set; }
-        public Nullable<bool> Nu { get; set; }
-        public string commune_id { get; set; }
+        public string province_id { get; set; }
+        public string province_name { get; set; }
     
-        public virtual commune commune { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThuePhong> ThuePhongs { get; set; }
+        public virtual ICollection<districtEntity> districts { get; set; }
     }
 }

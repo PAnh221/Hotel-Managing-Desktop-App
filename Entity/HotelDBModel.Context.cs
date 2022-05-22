@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Nhom15_FinalProject
+namespace Nhom15_FinalProject.Entity
 {
     using System;
     using System.Data.Entity;
@@ -25,17 +25,17 @@ namespace Nhom15_FinalProject
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<commune> communes { get; set; }
-        public virtual DbSet<DichVu> DichVus { get; set; }
-        public virtual DbSet<district> districts { get; set; }
-        public virtual DbSet<KhachHang> KhachHangs { get; set; }
-        public virtual DbSet<LoaiPhong> LoaiPhongs { get; set; }
-        public virtual DbSet<NhanVien> NhanViens { get; set; }
-        public virtual DbSet<Phong> Phongs { get; set; }
-        public virtual DbSet<province> provinces { get; set; }
-        public virtual DbSet<SuDungDichVu> SuDungDichVus { get; set; }
+        public virtual DbSet<communeEntity> communeEntities { get; set; }
+        public virtual DbSet<DichVuEntity> DichVuEntities { get; set; }
+        public virtual DbSet<districtEntity> districtEntities { get; set; }
+        public virtual DbSet<KhachHangEntity> KhachHangEntities { get; set; }
+        public virtual DbSet<LoaiPhongEntity> LoaiPhongEntities { get; set; }
+        public virtual DbSet<NhanVienEntity> NhanVienEntities { get; set; }
+        public virtual DbSet<PhongEntity> PhongEntities { get; set; }
+        public virtual DbSet<provinceEntity> provinceEntities { get; set; }
+        public virtual DbSet<SuDungDichVuEntity> SuDungDichVuEntities { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<ThanhToan> ThanhToans { get; set; }
-        public virtual DbSet<ThuePhong> ThuePhongs { get; set; }
+        public virtual DbSet<ThanhToanEntity> ThanhToanEntities { get; set; }
+        public virtual DbSet<ThuePhongEntity> ThuePhongEntities { get; set; }
     }
 }

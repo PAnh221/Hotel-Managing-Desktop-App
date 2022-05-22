@@ -7,17 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Nhom15_FinalProject
+namespace Nhom15_FinalProject.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class KhachHang
+    public partial class KhachHangEntity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KhachHang()
+        public KhachHangEntity()
         {
-            this.ThuePhongs = new HashSet<ThuePhong>();
+            this.ThuePhongs = new HashSet<ThuePhongEntity>();
         }
     
         public string CMND { get; set; }
@@ -27,8 +27,8 @@ namespace Nhom15_FinalProject
         public Nullable<bool> Nu { get; set; }
         public string commune_id { get; set; }
     
-        public virtual commune commune { get; set; }
+        public virtual communeEntity commune { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThuePhong> ThuePhongs { get; set; }
+        public virtual ICollection<ThuePhongEntity> ThuePhongs { get; set; }
     }
 }

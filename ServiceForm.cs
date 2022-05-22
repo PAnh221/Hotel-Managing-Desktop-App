@@ -13,7 +13,7 @@ namespace Nhom15_FinalProject
 {
     public partial class ServiceForm : Form
     {
-        HotelDBMF db = null;
+        Entity.HotelDBMF db = null;
         public ServiceForm()
         {
             InitializeComponent();
@@ -28,8 +28,8 @@ namespace Nhom15_FinalProject
 
         private void mySetService()
         {
-            db = new HotelDBMF();
-            var SQ = from SList in db.DichVus
+            db = new Entity.HotelDBMF();
+            var SQ = from SList in db.DichVuEntities
                       select SList;
             DataTable dt = new DataTable();
             dt.Columns.Add("Ma_DV");
@@ -128,11 +128,11 @@ namespace Nhom15_FinalProject
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
-            db = new HotelDBMF();
+            db = new Entity.HotelDBMF();
             int r = dgvService.CurrentCell.RowIndex;
             string tempID = dgvService.Rows[r].Cells[0].Value.ToString();
 
-            var Query = (from SV in db.DichVus
+            var Query = (from SV in db.DichVuEntities
                          where SV.MaDV == txtServiceID.Text.Trim()
                          select SV).SingleOrDefault();
             if (Query != null)
@@ -144,13 +144,13 @@ namespace Nhom15_FinalProject
             {
                 try
                 {
-                    DichVu SV = new DichVu();
+                    Entity.DichVuEntity SV = new Entity.DichVuEntity();
                     SV.MaDV = txtServiceID.Text.Trim();
                     SV.TenDV = txtServiceName.Text.Trim();
                     SV.GiaTien = Convert.ToDouble(txtPrice.Text.Trim());
                     SV.DonViTinh = txtUnit.Text.Trim();
 
-                    db.DichVus.Add(SV);
+                    db.DichVuEntities.Add(SV);
                     db.SaveChanges();
                 }
                 catch
@@ -168,9 +168,9 @@ namespace Nhom15_FinalProject
             {
                 int r = dgvService.CurrentCell.RowIndex;
                 string tempDID = dgvService.Rows[r].Cells[0].Value.ToString();
-                DichVu Q = db.DichVus.Single(x => x.MaDV == tempDID);
+                Entity.DichVuEntity Q = db.DichVuEntities.Single(x => x.MaDV == tempDID);
 
-                db.DichVus.Remove(Q);
+                db.DichVuEntities.Remove(Q);
                 db.SaveChanges();
                 mySetService();
             }

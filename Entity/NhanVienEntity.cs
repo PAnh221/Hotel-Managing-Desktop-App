@@ -7,29 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Nhom15_FinalProject
+namespace Nhom15_FinalProject.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Phong
+    public partial class NhanVienEntity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Phong()
+        public NhanVienEntity()
         {
-            this.ThuePhongs = new HashSet<ThuePhong>();
+            this.ThuePhongs = new HashSet<ThuePhongEntity>();
         }
     
-        public string MaPhong { get; set; }
-        public string MaLoai { get; set; }
-        public Nullable<bool> TrangThai { get; set; }
-        public string GhiChu { get; set; }
-        public string DienTich { get; set; }
-        public Nullable<double> GiaThue { get; set; }
-        public Nullable<int> SoGiuong { get; set; }
+        public string MaNV { get; set; }
+        public string TenNV { get; set; }
+        public string DiaChi { get; set; }
+        public Nullable<bool> Nu { get; set; }
+        public string commune_id { get; set; }
     
-        public virtual LoaiPhong LoaiPhong { get; set; }
+        public virtual communeEntity commune { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThuePhong> ThuePhongs { get; set; }
+        public virtual ICollection<ThuePhongEntity> ThuePhongs { get; set; }
     }
 }

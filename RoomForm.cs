@@ -17,10 +17,22 @@ namespace Nhom15_FinalProject
         {
             InitializeComponent();
         }
+        QuanLyKhachSanDataContext db = null;
+
+        private void MySetRoomForm()
+        {
+            db = new QuanLyKhachSanDataContext();
+            var PhongQ = from p in db.Phongs select p;
+            dgvRoom.DataSource = PhongQ;
+        }
 
         private void RoomForm_Load(object sender, EventArgs e)
         {
-
+            db = new QuanLyKhachSanDataContext();
+            cmbRoomType.DataSource = from p in db.LoaiPhongs select p;
+            cmbRoomType.DisplayMember = "MaLoai";
+            //cmbRoomType.ValueMember = "MaPhong";
+            MySetRoomForm();
         }
 
         #region Events Mouse
@@ -92,6 +104,133 @@ namespace Nhom15_FinalProject
         }
 
         private void pbBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtFind_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            dgvRoom.DataSource = db.Phongs.Where(x => x.MaPhong.Equals(txtFind.Text));
+        }
+
+        private void dgvRoom_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int r = dgvRoom.CurrentCell.RowIndex;
+            // Chuyển thông tin từ Gridview lên các textbox ở panel
+            txtRoomID.Text = dgvRoom.Rows[r].Cells[0].Value.ToString();
+            cmbRoomType.Text = dgvRoom.Rows[r].Cells[1].Value.ToString();
+            txtArea.Text = dgvRoom.Rows[r].Cells[4].Value.ToString();
+            txtNote.Text = dgvRoom.Rows[r].Cells[3].Value.ToString();
+            txtPrice.Text = dgvRoom.Rows[r].Cells[5].Value.ToString();
+            //cbStatus.Checked = dgvRoom.Rows[r].Cells[2].Value.ToString();
+
+        }
+
+        private void pbAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                QuanLyKhachSanDataContext db = new QuanLyKhachSanDataContext();
+                db.Phongs.InsertOnSubmit(new Phong
+                {
+                    MaPhong = txtRoomID.Text,
+
+                    MaLoai = cmbRoomType.Text,
+
+                    TrangThai = cbStatus.Checked,
+
+                    GhiChu = txtNote.Text,
+
+                    DienTich = txtArea.Text,
+
+                    GiaThue = Convert.ToDouble(txtPrice.Text)
+
+                });
+                db.SubmitChanges();
+                MySetRoomForm();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void pbEdit_Click(object sender, EventArgs e)
+        {
+            if (dgvRoom.SelectedRows == null)
+            {
+                return;
+            }
+            try
+            {
+                if (dgvRoom.CurrentCell != null)
+                {
+                    int r = dgvRoom.CurrentCell.RowIndex;
+                    string tempPID = dgvRoom.Rows[r].Cells[0].Value.ToString();
+                    Phong PhongQ = db.Phongs.Single(x => x.MaPhong == tempPID);
+                    PhongQ.MaPhong = txtRoomID.Text;
+                    PhongQ.MaLoai = cmbRoomType.Text;
+                    PhongQ.TrangThai = cbStatus.Checked;
+                    PhongQ.GhiChu = txtNote.Text;
+                    PhongQ.DienTich = txtArea.Text;
+                    PhongQ.GiaThue = Convert.ToDouble(txtPrice.Text);
+                    db.SubmitChanges();
+                    MySetRoomForm();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void pbDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int r = dgvRoom.CurrentCell.RowIndex;
+                string tempPID = dgvRoom.Rows[r].Cells[0].Value.ToString();
+                Phong PhongQ = db.Phongs.Single(x => x.MaPhong == tempPID);
+                db.Phongs.DeleteOnSubmit(PhongQ);
+                db.SubmitChanges();
+                MySetRoomForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void pbSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int r = dgvRoom.CurrentCell.RowIndex;
+                string tempPID = dgvRoom.Rows[r].Cells[0].Value.ToString();
+                Phong PhongQ = db.Phongs.Single(x => x.MaPhong == tempPID);
+                PhongQ.MaPhong = txtRoomID.Text;
+                PhongQ.MaLoai = cmbRoomType.Text;
+                PhongQ.TrangThai = cbStatus.Checked;
+                PhongQ.GhiChu = txtNote.Text;
+                PhongQ.DienTich = txtArea.Text;
+                PhongQ.GiaThue = Convert.ToDouble(txtPrice.Text);
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void pbCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }

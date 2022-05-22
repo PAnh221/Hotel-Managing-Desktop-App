@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyKhachSan" Class="QuanLyKhachSanDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=PHIANH;Initial Catalog=QuanLyKhachSan;Integrated Security=True" SettingsObjectName="Nhom15_FinalProject.Properties.Settings" SettingsPropertyName="QuanLyKhachSanConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.commune" Member="communes">
+    <Type Name="commune">
+      <Column Name="commune_id" Type="System.String" DbType="NChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="commune_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="degree" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="district_id" Type="System.String" DbType="NChar(5)" CanBeNull="true" />
+      <Association Name="commune_KhachHang" Member="KhachHangs" ThisKey="commune_id" OtherKey="commune_id" Type="KhachHang" />
+      <Association Name="commune_NhanVien" Member="NhanViens" ThisKey="commune_id" OtherKey="commune_id" Type="NhanVien" />
+      <Association Name="district_commune" Member="district" ThisKey="district_id" OtherKey="district_id" Type="district" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ThuePhong" Member="ThuePhongs">
+    <Type Name="ThuePhong">
+      <Column Name="MaThuePhong" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaPhong" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MaNV" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CMND" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NgayVao" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="DatCoc" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="ThuePhong_SuDungDichVu" Member="SuDungDichVus" ThisKey="MaThuePhong" OtherKey="MaThuePhong" Type="SuDungDichVu" />
+      <Association Name="ThuePhong_ThanhToan" Member="ThanhToans" ThisKey="MaThuePhong" OtherKey="MaThuePhong" Type="ThanhToan" />
+      <Association Name="KhachHang_ThuePhong" Member="KhachHang" ThisKey="CMND" OtherKey="CMND" Type="KhachHang" IsForeignKey="true" />
+      <Association Name="NhanVien_ThuePhong" Member="NhanVien" ThisKey="MaNV" OtherKey="MaNV" Type="NhanVien" IsForeignKey="true" />
+      <Association Name="Phong_ThuePhong" Member="Phong" ThisKey="MaPhong" OtherKey="MaPhong" Type="Phong" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DichVu" Member="DichVus">
+    <Type Name="DichVu">
+      <Column Name="MaDV" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenDV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GiaTien" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DonViTinh" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="DichVu_SuDungDichVu" Member="SuDungDichVus" ThisKey="MaDV" OtherKey="MaDV" Type="SuDungDichVu" />
+    </Type>
+  </Table>
+  <Table Name="dbo.district" Member="districts">
+    <Type Name="district">
+      <Column Name="district_id" Type="System.String" DbType="NChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="district_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="province_id" Type="System.String" DbType="NChar(5) NOT NULL" CanBeNull="false" />
+      <Association Name="district_commune" Member="communes" ThisKey="district_id" OtherKey="district_id" Type="commune" />
+      <Association Name="province_district" Member="province" ThisKey="province_id" OtherKey="province_id" Type="province" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KhachHang" Member="KhachHangs">
+    <Type Name="KhachHang">
+      <Column Name="CMND" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SoDienThoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Nu" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="commune_id" Type="System.String" DbType="NChar(5)" CanBeNull="true" />
+      <Association Name="KhachHang_ThuePhong" Member="ThuePhongs" ThisKey="CMND" OtherKey="CMND" Type="ThuePhong" />
+      <Association Name="commune_KhachHang" Member="commune" ThisKey="commune_id" OtherKey="commune_id" Type="commune" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoaiPhong" Member="LoaiPhongs">
+    <Type Name="LoaiPhong">
+      <Column Name="MaLoai" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenLoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="LoaiPhong_Phong" Member="Phongs" ThisKey="MaLoai" OtherKey="MaLoai" Type="Phong" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhanVien" Member="NhanViens">
+    <Type Name="NhanVien">
+      <Column Name="MaNV" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenNV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Nu" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="commune_id" Type="System.String" DbType="NChar(5) NOT NULL" CanBeNull="false" />
+      <Association Name="NhanVien_ThuePhong" Member="ThuePhongs" ThisKey="MaNV" OtherKey="MaNV" Type="ThuePhong" />
+      <Association Name="commune_NhanVien" Member="commune" ThisKey="commune_id" OtherKey="commune_id" Type="commune" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Phong" Member="Phongs">
+    <Type Name="Phong">
+      <Column Name="MaPhong" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaLoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DienTich" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GiaThue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SoGiuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Phong_ThuePhong" Member="ThuePhongs" ThisKey="MaPhong" OtherKey="MaPhong" Type="ThuePhong" />
+      <Association Name="LoaiPhong_Phong" Member="LoaiPhong" ThisKey="MaLoai" OtherKey="MaLoai" Type="LoaiPhong" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.province" Member="provinces">
+    <Type Name="province">
+      <Column Name="province_id" Type="System.String" DbType="NChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="province_name" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="province_district" Member="districts" ThisKey="province_id" OtherKey="province_id" Type="district" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SuDungDichVu" Member="SuDungDichVus">
+    <Type Name="SuDungDichVu">
+      <Column Name="MaPhong" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaDV" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaThuePhong" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="NgaySuDung" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DichVu_SuDungDichVu" Member="DichVu" ThisKey="MaDV" OtherKey="MaDV" Type="DichVu" IsForeignKey="true" />
+      <Association Name="ThuePhong_SuDungDichVu" Member="ThuePhong" ThisKey="MaThuePhong" OtherKey="MaThuePhong" Type="ThuePhong" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ThanhToan" Member="ThanhToans">
+    <Type Name="ThanhToan">
+      <Column Name="MaThanhToan" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ThanhTien" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="NgayThanhToan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MaThuePhong" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MaNV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgayVao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="ThuePhong_ThanhToan" Member="ThuePhong" ThisKey="MaThuePhong" OtherKey="MaThuePhong" Type="ThuePhong" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

@@ -7,12 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Nhom15_FinalProject
+namespace Nhom15_FinalProject.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class SuDungDichVu
+    public partial class SuDungDichVuEntity
     {
         public string MaPhong { get; set; }
         public string MaDV { get; set; }
@@ -20,7 +20,7 @@ namespace Nhom15_FinalProject
         public Nullable<System.DateTime> NgaySuDung { get; set; }
         public Nullable<int> SoLuong { get; set; }
     
-        public virtual DichVu DichVu { get; set; }
-        public virtual ThuePhong ThuePhong { get; set; }
+        public virtual DichVuEntity DichVu { get; set; }
+        public virtual ThuePhongEntity ThuePhong { get; set; }
     }
 }

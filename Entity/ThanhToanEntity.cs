@@ -7,12 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Nhom15_FinalProject
+namespace Nhom15_FinalProject.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ThanhToan
+    public partial class ThanhToanEntity
     {
         public string MaThanhToan { get; set; }
         public Nullable<decimal> ThanhTien { get; set; }
@@ -21,6 +21,6 @@ namespace Nhom15_FinalProject
         public string MaNV { get; set; }
         public Nullable<System.DateTime> NgayVao { get; set; }
     
-        public virtual ThuePhong ThuePhong { get; set; }
+        public virtual ThuePhongEntity ThuePhong { get; set; }
     }
 }

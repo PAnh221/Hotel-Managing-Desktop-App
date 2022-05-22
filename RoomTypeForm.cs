@@ -13,7 +13,7 @@ namespace Nhom15_FinalProject
 {
     public partial class RoomTypeForm : Form
     {
-        HotelDBMF db = null;
+        Entity.HotelDBMF db = null;
         public RoomTypeForm()
         {
             InitializeComponent();
@@ -28,8 +28,8 @@ namespace Nhom15_FinalProject
 
         private void mySetRoomType()
         {
-            db = new HotelDBMF();
-            var RTQ = from RTypeList in db.LoaiPhongs
+            db = new Entity.HotelDBMF();
+            var RTQ = from RTypeList in db.LoaiPhongEntities
                       select RTypeList;
             DataTable dt = new DataTable();
             dt.Columns.Add("Ma_Loai");
@@ -133,9 +133,9 @@ namespace Nhom15_FinalProject
             {
                 int r = dgvTypeRoom.CurrentCell.RowIndex;
                 string tempDID = dgvTypeRoom.Rows[r].Cells[0].Value.ToString();
-                LoaiPhong Q = db.LoaiPhongs.Single(x => x.MaLoai == tempDID);
+                Entity.LoaiPhongEntity Q = db.LoaiPhongEntities.Single(x => x.MaLoai == tempDID);
 
-                db.LoaiPhongs.Remove(Q);
+                db.LoaiPhongEntities.Remove(Q);
                 db.SaveChanges();
                 mySetRoomType();
             }
@@ -144,13 +144,13 @@ namespace Nhom15_FinalProject
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
-            db = new HotelDBMF();
+            db = new Entity.HotelDBMF();
             //int r = dgvTypeRoom.CurrentCell.RowIndex;
             //string tempID = dgvTypeRoom.Rows[r].Cells[0].Value.ToString();
 
             string tempID = txtRoomType.Text;
 
-            var Query = (from RT in db.LoaiPhongs
+            var Query = (from RT in db.LoaiPhongEntities
                          where RT.MaLoai == txtRoomType.Text.Trim()
                          select RT).SingleOrDefault();
             if (Query != null)
@@ -162,11 +162,11 @@ namespace Nhom15_FinalProject
             {
                 try
                 {
-                    LoaiPhong RT = new LoaiPhong();
+                    Entity.LoaiPhongEntity RT = new Entity.LoaiPhongEntity();
                     RT.MaLoai = txtRoomType.Text.Trim();
                     RT.TenLoai = txtNameType.Text.Trim();
 
-                    db.LoaiPhongs.Add(RT);
+                    db.LoaiPhongEntities.Add(RT);
                     db.SaveChanges();
 
                 }

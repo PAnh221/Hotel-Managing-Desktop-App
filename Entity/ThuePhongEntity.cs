@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Nhom15_FinalProject
+namespace Nhom15_FinalProject.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ThuePhong
+    public partial class ThuePhongEntity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ThuePhong()
+        public ThuePhongEntity()
         {
-            this.SuDungDichVus = new HashSet<SuDungDichVu>();
-            this.ThanhToans = new HashSet<ThanhToan>();
+            this.SuDungDichVus = new HashSet<SuDungDichVuEntity>();
+            this.ThanhToans = new HashSet<ThanhToanEntity>();
         }
     
         public string MaThuePhong { get; set; }
@@ -28,12 +28,12 @@ namespace Nhom15_FinalProject
         public string NgayVao { get; set; }
         public string DatCoc { get; set; }
     
-        public virtual KhachHang KhachHang { get; set; }
-        public virtual NhanVien NhanVien { get; set; }
-        public virtual Phong Phong { get; set; }
+        public virtual KhachHangEntity KhachHang { get; set; }
+        public virtual NhanVienEntity NhanVien { get; set; }
+        public virtual PhongEntity Phong { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SuDungDichVu> SuDungDichVus { get; set; }
+        public virtual ICollection<SuDungDichVuEntity> SuDungDichVus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThanhToan> ThanhToans { get; set; }
+        public virtual ICollection<ThanhToanEntity> ThanhToans { get; set; }
     }
 }

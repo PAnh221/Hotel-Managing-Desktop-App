@@ -8,12 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace Nhom15_FinalProject
 {
     public partial class ClientForm : Form
     {
-        HotelDBMF db = null;
+        Entity.HotelDBMF db = null;
         public ClientForm()
         {
             InitializeComponent();
@@ -37,8 +36,8 @@ namespace Nhom15_FinalProject
 
         private void mySetKhachHang()
         {
-            db = new HotelDBMF();
-            var ClientQ = from khList in db.KhachHangs
+            db = new Entity.HotelDBMF();
+            var ClientQ = from khList in db.KhachHangEntities
                           select khList;
             DataTable dt = new DataTable();
             dt.Columns.Add("CMND");
@@ -58,8 +57,8 @@ namespace Nhom15_FinalProject
 
         private void setProvince()
         {
-            db = new HotelDBMF();
-            var ProvQ = from ProvList in db.provinces
+            db = new Entity.HotelDBMF();
+            var ProvQ = from ProvList in db.provinceEntities
                         select
                         ProvList.province_name;
             foreach (string ProvName in ProvQ)
@@ -70,8 +69,8 @@ namespace Nhom15_FinalProject
 
         private void setDistrict()
         {
-            var DistQ = from DistList in db.districts
-                        join ProvList in db.provinces on
+            var DistQ = from DistList in db.districtEntities
+                        join ProvList in db.provinceEntities on
 
                         DistList.province_id equals ProvList.province_id
                         where (ProvList.province_name == cbProv.Text.Trim())
@@ -85,8 +84,8 @@ namespace Nhom15_FinalProject
 
         private void setComm()
         {
-            var CommQ = from CommList in db.communes
-                        join DistList in db.districts on
+            var CommQ = from CommList in db.communeEntities
+                        join DistList in db.districtEntities on
 
                         CommList.district_id equals DistList.district_id
                         where (DistList.district_name == cbDist.Text)
@@ -196,7 +195,7 @@ namespace Nhom15_FinalProject
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
-            var Query = (from KH in db.KhachHangs
+            var Query = (from KH in db.KhachHangEntities
                          where KH.CMND == txtID.Text
                          select KH).SingleOrDefault();
             if (Query != null)
@@ -208,20 +207,20 @@ namespace Nhom15_FinalProject
                 try
                 {
 
-                    var Query1 = (from C in db.communes
+                    var Query1 = (from C in db.communeEntities
                                   where C.commune_name == cbCommune.Text
                                   select C);
 
-                    var cid = Query1.FirstOrDefault<commune>();
+                    var cid = Query1.FirstOrDefault<Entity.communeEntity>();
 
-                    KhachHang KH = new KhachHang();
+                    Entity.KhachHangEntity KH = new Entity.KhachHangEntity();
                     KH.CMND = txtID.Text.Trim();
                     KH.TenKH = txtName.Text.Trim();
                     KH.DiaChi = txtAddress.Text.Trim() + "," + cbCommune.Text.Trim() + "," + cbDist.Text.Trim();
                     KH.SoDienThoai = txtPhoneNumber.Text.Trim();
                     KH.Nu = ckbFemale.Checked;
                     KH.commune_id = cid.commune_id;
-                    db.KhachHangs.Add(KH);
+                    db.KhachHangEntities.Add(KH);
                     db.SaveChanges();
                 }
 
@@ -253,11 +252,11 @@ namespace Nhom15_FinalProject
             if (dgvClient.CurrentCell != null) {
                 int r = dgvClient.CurrentCell.RowIndex;
                 string tempDID = dgvClient.Rows[r].Cells[0].Value.ToString();
-                KhachHang Q = db.KhachHangs.Single(x => x.CMND == tempDID);
+                Entity.KhachHangEntity Q = db.KhachHangEntities.Single(x => x.CMND == tempDID);
 
                 //db.districts.DeleteOnSubmit(DistQ);
                 //db.SubmitChanges();
-                db.KhachHangs.Remove(Q);
+                db.KhachHangEntities.Remove(Q);
                 db.SaveChanges();
                 mySetKhachHang();
             }
