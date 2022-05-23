@@ -50,14 +50,11 @@ namespace Nhom15_FinalProject
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pbSave = new System.Windows.Forms.PictureBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.pbEdit = new System.Windows.Forms.PictureBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
-            this.txtFind = new System.Windows.Forms.TextBox();
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.dgvClient = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbSex = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
@@ -301,18 +298,6 @@ namespace Nhom15_FinalProject
             this.pbSave.MouseEnter += new System.EventHandler(this.pbSave_MouseEnter);
             this.pbSave.MouseLeave += new System.EventHandler(this.pbSave_MouseLeave);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
-            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Location = new System.Drawing.Point(1203, 250);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(43, 38);
-            this.btnSearch.TabIndex = 137;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            // 
             // pbEdit
             // 
             this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
@@ -323,6 +308,7 @@ namespace Nhom15_FinalProject
             this.pbEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEdit.TabIndex = 133;
             this.pbEdit.TabStop = false;
+            this.pbEdit.Click += new System.EventHandler(this.pbEdit_Click);
             this.pbEdit.MouseEnter += new System.EventHandler(this.pbEdit_MouseEnter);
             this.pbEdit.MouseLeave += new System.EventHandler(this.pbEdit_MouseLeave);
             // 
@@ -339,15 +325,6 @@ namespace Nhom15_FinalProject
             this.pbAdd.Click += new System.EventHandler(this.pbAdd_Click);
             this.pbAdd.MouseEnter += new System.EventHandler(this.pbAdd_MouseEnter);
             this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
-            // 
-            // txtFind
-            // 
-            this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtFind.Location = new System.Drawing.Point(905, 250);
-            this.txtFind.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(288, 37);
-            this.txtFind.TabIndex = 130;
             // 
             // pbBack
             // 
@@ -386,21 +363,6 @@ namespace Nhom15_FinalProject
             this.label1.TabIndex = 0;
             this.label1.Text = "Client Information";
             // 
-            // cbSex
-            // 
-            this.cbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSex.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSex.FormattingEnabled = true;
-            this.cbSex.Items.AddRange(new object[] {
-            "None",
-            "Male",
-            "Female"});
-            this.cbSex.Location = new System.Drawing.Point(905, 212);
-            this.cbSex.Margin = new System.Windows.Forms.Padding(4);
-            this.cbSex.Name = "cbSex";
-            this.cbSex.Size = new System.Drawing.Size(160, 28);
-            this.cbSex.TabIndex = 136;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
@@ -421,17 +383,14 @@ namespace Nhom15_FinalProject
             this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.gbInfor);
             this.Controls.Add(this.pbSave);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.pbEdit);
             this.Controls.Add(this.pbAdd);
-            this.Controls.Add(this.txtFind);
             this.Controls.Add(this.pbBack);
             this.Controls.Add(this.dgvClient);
-            this.Controls.Add(this.cbSex);
             this.Controls.Add(this.panel1);
             this.Name = "ClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ClientForm";
+            this.Text = "Client";
             this.Load += new System.EventHandler(this.ClientForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).EndInit();
@@ -445,7 +404,6 @@ namespace Nhom15_FinalProject
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -464,14 +422,11 @@ namespace Nhom15_FinalProject
         private System.Windows.Forms.PictureBox pbCancel;
         private System.Windows.Forms.GroupBox gbInfor;
         private System.Windows.Forms.PictureBox pbSave;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.PictureBox pbEdit;
         private System.Windows.Forms.PictureBox pbAdd;
-        private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.PictureBox pbBack;
         private System.Windows.Forms.DataGridView dgvClient;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbSex;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cbProv;
         private System.Windows.Forms.ComboBox cbDist;

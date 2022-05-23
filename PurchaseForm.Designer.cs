@@ -50,13 +50,13 @@ namespace Nhom15_FinalProject
             this.gbInfor = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvPurchase = new System.Windows.Forms.DataGridView();
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbEdit = new System.Windows.Forms.PictureBox();
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.txtFind = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDelete)).BeginInit();
             this.gbInfor.SuspendLayout();
@@ -300,15 +300,6 @@ namespace Nhom15_FinalProject
             this.label1.TabIndex = 0;
             this.label1.Text = "Purchase";
             // 
-            // txtFind
-            // 
-            this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtFind.Location = new System.Drawing.Point(905, 248);
-            this.txtFind.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(288, 37);
-            this.txtFind.TabIndex = 131;
-            // 
             // dgvPurchase
             // 
             this.dgvPurchase.AllowUserToAddRows = false;
@@ -386,6 +377,16 @@ namespace Nhom15_FinalProject
             this.btnSearch.Size = new System.Drawing.Size(43, 38);
             this.btnSearch.TabIndex = 137;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtFind
+            // 
+            this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtFind.Location = new System.Drawing.Point(905, 248);
+            this.txtFind.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFind.Name = "txtFind";
+            this.txtFind.Size = new System.Drawing.Size(288, 37);
+            this.txtFind.TabIndex = 131;
             // 
             // PurchaseForm
             // 
@@ -446,12 +447,12 @@ namespace Nhom15_FinalProject
         private System.Windows.Forms.GroupBox gbInfor;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgvPurchase;
         private System.Windows.Forms.PictureBox pbSave;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbEdit;
         private System.Windows.Forms.PictureBox pbBack;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtFind;
     }
 }

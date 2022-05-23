@@ -120,10 +120,10 @@ namespace Nhom15_FinalProject
         {
             int r = dgvService.CurrentCell.RowIndex;
             // Chuyển thông tin từ Gridview lên các textbox ở panel
-            txtServiceID.Text = dgvService.Rows[r].Cells[0].Value.ToString();
-            txtServiceName.Text = dgvService.Rows[r].Cells[1].Value.ToString();
-            txtPrice.Text = dgvService.Rows[r].Cells[2].Value.ToString();
-            txtUnit.Text = dgvService.Rows[r].Cells[3].Value.ToString();
+            txtServiceID.Text = dgvService.Rows[r].Cells[0].Value.ToString().Trim();
+            txtServiceName.Text = dgvService.Rows[r].Cells[1].Value.ToString().Trim();
+            txtPrice.Text = dgvService.Rows[r].Cells[2].Value.ToString().Trim();
+            txtUnit.Text = dgvService.Rows[r].Cells[3].Value.ToString().Trim();
         }
 
         private void pbAdd_Click(object sender, EventArgs e)

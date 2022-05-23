@@ -36,12 +36,9 @@ namespace Nhom15_FinalProject
             this.pbSave = new System.Windows.Forms.PictureBox();
             this.dgvStaff = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbSex = new System.Windows.Forms.ComboBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.pbEdit = new System.Windows.Forms.PictureBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbBack = new System.Windows.Forms.PictureBox();
-            this.txtFind = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -143,33 +140,6 @@ namespace Nhom15_FinalProject
             this.label1.TabIndex = 0;
             this.label1.Text = "Staff Information";
             // 
-            // cbSex
-            // 
-            this.cbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSex.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSex.FormattingEnabled = true;
-            this.cbSex.Items.AddRange(new object[] {
-            "None",
-            "Male",
-            "Female"});
-            this.cbSex.Location = new System.Drawing.Point(902, 211);
-            this.cbSex.Margin = new System.Windows.Forms.Padding(4);
-            this.cbSex.Name = "cbSex";
-            this.cbSex.Size = new System.Drawing.Size(160, 28);
-            this.cbSex.TabIndex = 136;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
-            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Location = new System.Drawing.Point(1200, 249);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(43, 38);
-            this.btnSearch.TabIndex = 137;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            // 
             // pbEdit
             // 
             this.pbEdit.Image = ((System.Drawing.Image)(resources.GetObject("pbEdit.Image")));
@@ -209,15 +179,6 @@ namespace Nhom15_FinalProject
             this.pbBack.TabIndex = 131;
             this.pbBack.TabStop = false;
             this.pbBack.Click += new System.EventHandler(this.pbBack_Click);
-            // 
-            // txtFind
-            // 
-            this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtFind.Location = new System.Drawing.Point(902, 249);
-            this.txtFind.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(288, 37);
-            this.txtFind.TabIndex = 130;
             // 
             // panel1
             // 
@@ -401,12 +362,9 @@ namespace Nhom15_FinalProject
             this.Controls.Add(this.gbInfor);
             this.Controls.Add(this.pbSave);
             this.Controls.Add(this.dgvStaff);
-            this.Controls.Add(this.cbSex);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.pbEdit);
             this.Controls.Add(this.pbAdd);
             this.Controls.Add(this.pbBack);
-            this.Controls.Add(this.txtFind);
             this.Controls.Add(this.panel1);
             this.Name = "StaffForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -424,7 +382,6 @@ namespace Nhom15_FinalProject
             this.gbInfor.ResumeLayout(false);
             this.gbInfor.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -435,12 +392,9 @@ namespace Nhom15_FinalProject
         private System.Windows.Forms.PictureBox pbSave;
         private System.Windows.Forms.DataGridView dgvStaff;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbSex;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.PictureBox pbEdit;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbBack;
-        private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label3;

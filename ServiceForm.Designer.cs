@@ -31,7 +31,6 @@ namespace Nhom15_FinalProject
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiceForm));
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtUnit = new System.Windows.Forms.TextBox();
@@ -46,7 +45,6 @@ namespace Nhom15_FinalProject
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbDelete = new System.Windows.Forms.PictureBox();
-            this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvService = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.pbEdit = new System.Windows.Forms.PictureBox();
@@ -71,18 +69,6 @@ namespace Nhom15_FinalProject
             this.btnLogout.TabIndex = 139;
             this.btnLogout.Text = "Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Location = new System.Drawing.Point(1203, 248);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnSearch.Size = new System.Drawing.Size(47, 39);
-            this.btnSearch.TabIndex = 138;
-            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -250,15 +236,6 @@ namespace Nhom15_FinalProject
             this.pbDelete.MouseEnter += new System.EventHandler(this.pbDelete_MouseEnter);
             this.pbDelete.MouseLeave += new System.EventHandler(this.pbDelete_MouseLeave);
             // 
-            // txtFind
-            // 
-            this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtFind.Location = new System.Drawing.Point(905, 249);
-            this.txtFind.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(288, 37);
-            this.txtFind.TabIndex = 130;
-            // 
             // dgvService
             // 
             this.dgvService.AllowUserToAddRows = false;
@@ -313,14 +290,12 @@ namespace Nhom15_FinalProject
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1712, 743);
             this.Controls.Add(this.btnLogout);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.gbInfor);
             this.Controls.Add(this.pbSave);
             this.Controls.Add(this.pbBack);
             this.Controls.Add(this.pbAdd);
             this.Controls.Add(this.pbDelete);
-            this.Controls.Add(this.txtFind);
             this.Controls.Add(this.dgvService);
             this.Controls.Add(this.pbEdit);
             this.Controls.Add(this.panel1);
@@ -340,13 +315,11 @@ namespace Nhom15_FinalProject
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUnit;
@@ -361,7 +334,6 @@ namespace Nhom15_FinalProject
         private System.Windows.Forms.PictureBox pbBack;
         private System.Windows.Forms.PictureBox pbAdd;
         private System.Windows.Forms.PictureBox pbDelete;
-        private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgvService;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbEdit;

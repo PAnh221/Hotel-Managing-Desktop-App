@@ -261,5 +261,73 @@ namespace Nhom15_FinalProject
                 mySetKhachHang();
             }
         }
+
+        private void pbEdit_Click(object sender, EventArgs e)
+        {
+//            //db = new SalesDBMF();
+//            int r = dtGridView.CurrentCell.RowIndex;
+//            string tempDID = dtGridView.Rows[r].Cells[0].Value.ToString();
+//            district DTQuery = db.districts.Single(x => x.district_id ==
+
+//            tempDID);
+//            if (DTQuery != null)
+//            {
+//                province PRQuery2 = db.provinces.Single(x => x.province_id
+
+//                == txtPID.Text);
+
+//                var DTQuery2 = (from DT in db.districts
+//                                where
+//                                DT.district_id == txtDID.Text
+
+//                                select DT).SingleOrDefault();
+//                if (PRQuery2 == null)
+//                {
+//                    MessageBox.Show("Province_id chưa tồn tại trong BảngProvince, Vui lòng cập nhật Province_id trong bảngProvince trước!", "Lỗi khóa ngoại!");
+                
+//return;
+//                }
+//                if (DTQuery.district_id == txtDID.Text)
+//                {
+//                    //DTQuery.district_id = txtDID.Text;
+//                    DTQuery.district_name = txtDName.Text;
+//                    DTQuery.province_id = txtPID.Text;
+//                    db.SaveChanges();
+
+//                }
+//                else
+//                {
+//                    if (DTQuery2 != null)
+//                    {
+//                        MessageBox.Show("District_ID đã tồn tại trong BảngDistrict không sửa được!", "Lỗi khóa!");
+//                    return;
+//                    }
+//                    try
+//                    {
+
+//                        db.districts.Remove(DTQuery);
+
+//                        db.SaveChanges();
+
+//                        district DT = new district();
+//                        DT.district_id = txtDID.Text;
+//                        DT.district_name = txtDName.Text;
+//                        DT.province_id = txtPID.Text;
+//                        db.districts.Add(DT);
+//                        db.SaveChanges();
+
+//                    }
+//                    catch
+//                    {
+
+//                        MessageBox.Show("District_ID đã tồn tại khóa ngoại
+//                        trong bảng Commune, Vui lòng cập nhật District_ID
+//                        trong bảng Commune trước!", "Lỗi khóa ngoại!");
+                   
+//}
+//                }
+//            }
+//            MySetDistrict();
+        }
     }
 }

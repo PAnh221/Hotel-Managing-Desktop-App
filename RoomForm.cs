@@ -151,7 +151,9 @@ namespace Nhom15_FinalProject
 
                     DienTich = txtArea.Text,
 
-                    GiaThue = Convert.ToDouble(txtPrice.Text)
+                    GiaThue = Convert.ToDouble(txtPrice.Text),
+
+                    SoGiuong = Convert.ToInt32(txtBed.Text)
 
                 });
                 db.SubmitChanges();
@@ -236,6 +238,20 @@ namespace Nhom15_FinalProject
         private void pbCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgvRoom_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int r = dgvRoom.CurrentCell.RowIndex;
+            // Chuyển thông tin từ Gridview lên các textbox ở panel
+            txtRoomID.Text = dgvRoom.Rows[r].Cells[0].Value.ToString().Trim();
+            cmbRoomType.Text = dgvRoom.Rows[r].Cells[1].Value.ToString().Trim();
+            cbStatus.Checked = Convert.ToBoolean(dgvRoom.Rows[r].Cells[2].Value);
+            txtArea.Text = dgvRoom.Rows[r].Cells[4].Value.ToString().Trim();
+            txtNote.Text = dgvRoom.Rows[r].Cells[3].Value.ToString().Trim();
+            txtPrice.Text = dgvRoom.Rows[r].Cells[5].Value.ToString().Trim();
+            txtBed.Text = dgvRoom.Rows[r].Cells[6].Value.ToString().Trim();
+
         }
     }
 }

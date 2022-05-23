@@ -160,7 +160,6 @@ namespace Nhom15_FinalProject
             dt.Columns.Add("Ma NV");
             dt.Columns.Add("Ten NV");
             dt.Columns.Add("DiaChi");
-            dt.Columns.Add("NamSinh");
             dt.Columns.Add("Nu");
             dt.Columns.Add("commune_id");
 

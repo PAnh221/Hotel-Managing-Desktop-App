@@ -42,9 +42,7 @@ namespace Nhom15_FinalProject
             this.pbCancel = new System.Windows.Forms.PictureBox();
             this.gbInfor = new System.Windows.Forms.GroupBox();
             this.pbSave = new System.Windows.Forms.PictureBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.pbAdd = new System.Windows.Forms.PictureBox();
-            this.txtFind = new System.Windows.Forms.TextBox();
             this.dgvRoom = new System.Windows.Forms.DataGridView();
             this.pbBack = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -201,18 +199,6 @@ namespace Nhom15_FinalProject
             this.pbSave.MouseEnter += new System.EventHandler(this.pbSave_MouseEnter);
             this.pbSave.MouseLeave += new System.EventHandler(this.pbSave_MouseLeave);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
-            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Location = new System.Drawing.Point(1203, 249);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(47, 38);
-            this.btnSearch.TabIndex = 133;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            // 
             // pbAdd
             // 
             this.pbAdd.Image = ((System.Drawing.Image)(resources.GetObject("pbAdd.Image")));
@@ -225,15 +211,6 @@ namespace Nhom15_FinalProject
             this.pbAdd.TabStop = false;
             this.pbAdd.MouseEnter += new System.EventHandler(this.pbAdd_MouseEnter);
             this.pbAdd.MouseLeave += new System.EventHandler(this.pbAdd_MouseLeave);
-            // 
-            // txtFind
-            // 
-            this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtFind.Location = new System.Drawing.Point(905, 249);
-            this.txtFind.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(288, 37);
-            this.txtFind.TabIndex = 128;
             // 
             // dgvRoom
             // 
@@ -303,9 +280,7 @@ namespace Nhom15_FinalProject
             this.Controls.Add(this.pbCancel);
             this.Controls.Add(this.gbInfor);
             this.Controls.Add(this.pbSave);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.pbAdd);
-            this.Controls.Add(this.txtFind);
             this.Controls.Add(this.dgvRoom);
             this.Controls.Add(this.pbBack);
             this.Controls.Add(this.pbEdit);
@@ -325,7 +300,6 @@ namespace Nhom15_FinalProject
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -342,9 +316,7 @@ namespace Nhom15_FinalProject
         private System.Windows.Forms.PictureBox pbCancel;
         private System.Windows.Forms.GroupBox gbInfor;
         private System.Windows.Forms.PictureBox pbSave;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.PictureBox pbAdd;
-        private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.DataGridView dgvRoom;
         private System.Windows.Forms.PictureBox pbBack;
         private System.Windows.Forms.Label label1;

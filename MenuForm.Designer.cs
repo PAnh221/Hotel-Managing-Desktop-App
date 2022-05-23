@@ -134,6 +134,7 @@ namespace Nhom15_FinalProject
             this.lblRoom.Text = "Room";
             this.lblRoom.Click += new System.EventHandler(this.Room_Click);
             this.lblRoom.MouseEnter += new System.EventHandler(this.Room_MouseEnter);
+            this.lblRoom.MouseLeave += new System.EventHandler(this.Room_MouseLeave);
             this.lblRoom.MouseHover += new System.EventHandler(this.Room_MouseLeave);
             // 
             // pbRoomUsing
