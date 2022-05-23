@@ -224,9 +224,9 @@ namespace Nhom15_FinalProject
                     db.SaveChanges();
                 }
 
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Error", "Lỗi!");
+                    MessageBox.Show(ex.Message);
 
                 }
                 mySetKhachHang();
@@ -250,15 +250,23 @@ namespace Nhom15_FinalProject
         {
 
             if (dgvClient.CurrentCell != null) {
-                int r = dgvClient.CurrentCell.RowIndex;
-                string tempDID = dgvClient.Rows[r].Cells[0].Value.ToString();
-                Entity.KhachHangEntity Q = db.KhachHangEntities.Single(x => x.CMND == tempDID);
+                try
+                {
+                    int r = dgvClient.CurrentCell.RowIndex;
+                    string tempDID = dgvClient.Rows[r].Cells[0].Value.ToString();
+                    Entity.KhachHangEntity Q = db.KhachHangEntities.Single(x => x.CMND == tempDID);
 
-                //db.districts.DeleteOnSubmit(DistQ);
-                //db.SubmitChanges();
-                db.KhachHangEntities.Remove(Q);
-                db.SaveChanges();
-                mySetKhachHang();
+                    //db.districts.DeleteOnSubmit(DistQ);
+                    //db.SubmitChanges();
+                    db.KhachHangEntities.Remove(Q);
+                    db.SaveChanges();
+                    mySetKhachHang();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
         }
 

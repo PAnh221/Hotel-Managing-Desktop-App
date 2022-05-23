@@ -131,13 +131,20 @@ namespace Nhom15_FinalProject
         {
             if(dgvTypeRoom.CurrentCell != null)
             {
-                int r = dgvTypeRoom.CurrentCell.RowIndex;
-                string tempDID = dgvTypeRoom.Rows[r].Cells[0].Value.ToString();
-                Entity.LoaiPhongEntity Q = db.LoaiPhongEntities.Single(x => x.MaLoai == tempDID);
+                try
+                {
+                    int r = dgvTypeRoom.CurrentCell.RowIndex;
+                    string tempDID = dgvTypeRoom.Rows[r].Cells[0].Value.ToString();
+                    Entity.LoaiPhongEntity Q = db.LoaiPhongEntities.Single(x => x.MaLoai == tempDID);
 
-                db.LoaiPhongEntities.Remove(Q);
-                db.SaveChanges();
-                mySetRoomType();
+                    db.LoaiPhongEntities.Remove(Q);
+                    db.SaveChanges();
+                    mySetRoomType();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
 
         }
@@ -170,9 +177,9 @@ namespace Nhom15_FinalProject
                     db.SaveChanges();
 
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Error", "Lỗi !");
+                    MessageBox.Show(ex.Message);
 
                 }
                 mySetRoomType();

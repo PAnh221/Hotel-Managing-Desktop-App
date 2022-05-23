@@ -110,12 +110,15 @@
     <Compile Include="Entity\ThuePhongEntity.cs">
       <DependentUpon>HotelDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Helper\Helper.cs" />
     <Compile Include="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\SuDungDichVuDTO.cs" />
+    <Compile Include="Models\ThuePhongDTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PurchaseForm.cs">
@@ -249,5 +252,6 @@
       <LastGenOutput>HotelDBModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

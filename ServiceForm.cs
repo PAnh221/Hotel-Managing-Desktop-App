@@ -153,9 +153,9 @@ namespace Nhom15_FinalProject
                     db.DichVuEntities.Add(SV);
                     db.SaveChanges();
                 }
-                catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Error", "Lỗi !");
+                    MessageBox.Show(ex.Message);
 
                 }
                 mySetService();
@@ -166,15 +166,49 @@ namespace Nhom15_FinalProject
         {
             if(dgvService.CurrentCell != null)
             {
-                int r = dgvService.CurrentCell.RowIndex;
-                string tempDID = dgvService.Rows[r].Cells[0].Value.ToString();
-                Entity.DichVuEntity Q = db.DichVuEntities.Single(x => x.MaDV == tempDID);
+                try
+                {
+                    int r = dgvService.CurrentCell.RowIndex;
+                    string tempDID = dgvService.Rows[r].Cells[0].Value.ToString();
+                    Entity.DichVuEntity Q = db.DichVuEntities.Single(x => x.MaDV == tempDID);
 
-                db.DichVuEntities.Remove(Q);
-                db.SaveChanges();
-                mySetService();
+                    db.DichVuEntities.Remove(Q);
+                    db.SaveChanges();
+                    mySetService();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
 
+        }
+
+        private void pbEdit_Click(object sender, EventArgs e)
+        {
+            int r = dgvService.CurrentCell.RowIndex;
+            string tempDID = txtServiceID.Text;
+            Entity.DichVuEntity Query = db.DichVuEntities.Single(x => x.MaDV ==tempDID);
+            if (Query != null)
+            {
+                if (Query.MaDV == txtServiceID.Text)
+                {
+                    try
+                    {
+                        Query.TenDV = txtServiceName.Text;
+                        Query.GiaTien = Convert.ToDouble(txtPrice.Text);
+                        Query.DonViTinh = txtUnit.Text;
+                        db.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                }
+            }
+            mySetService();
         }
     }
 }
